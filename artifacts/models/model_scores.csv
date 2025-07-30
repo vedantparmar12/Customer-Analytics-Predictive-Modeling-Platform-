@@ -1,0 +1,6 @@
+,accuracy,precision,recall,f1_score,roc_auc
+Logistic Regression,0.9971704045273527,1.0,0.9968536969061353,0.9984243697478992,0.9999922960554317
+Random Forest,1.0,1.0,1.0,1.0,1.0
+Gradient Boosting,1.0,1.0,1.0,1.0,1.0
+XGBoost,1.0,1.0,1.0,1.0,1.0
+XGBoost_Tuned,1.0,1.0,1.0,1.0,0.9999999999999999

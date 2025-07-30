@@ -1,0 +1,14 @@
+feature,importance
+recency_days,0.6216442
+R_score,0.377394
+customer_lifetime_days,0.0003645029
+unique_products_purchased,0.00015457012
+monetary_value,0.00012744094
+order_value_std,0.00011823749
+avg_order_value,0.00010452404
+avg_days_between_orders,6.2561834e-05
+product_diversity_score,2.996134e-05
+total_orders,0.0
+frequency,0.0
+F_score,0.0
+M_score,0.0
