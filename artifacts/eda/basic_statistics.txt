@@ -1,6 +1,0 @@
-Total Customers: 95419
-Churned Customers: 67328
-Churn Rate: 70.56%
-Avg Customer Lifetime Value: $212.83
-Total Revenue: $20,308,134.71
-Avg Orders per Customer: 1.03
