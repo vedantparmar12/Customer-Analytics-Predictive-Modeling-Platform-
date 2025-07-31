@@ -1,0 +1,1467 @@
+2025-07-31 05:47:27,537 - __main__ - INFO - Complete Analytics Pipeline initialized
+2025-07-31 05:47:27,786 - __main__ - INFO - ============================================================
+2025-07-31 05:47:27,786 - __main__ - INFO - STARTING COMPLETE CUSTOMER ANALYTICS PIPELINE
+2025-07-31 05:47:27,786 - __main__ - INFO - ============================================================
+2025-07-31 05:47:27,794 - __main__ - INFO - ============================================================
+2025-07-31 05:47:27,794 - __main__ - INFO - STEP 1: Basic Data Processing
+2025-07-31 05:47:27,794 - __main__ - INFO - ============================================================
+2025-07-31 05:47:27,799 - src.data_processing - INFO - Customer Data Processor initialized
+2025-07-31 05:47:27,799 - src.data_processing - INFO - Loading ecommerce datasets...
+2025-07-31 05:47:29,086 - src.data_processing - INFO - Loaded 99441 customers
+2025-07-31 05:47:29,086 - src.data_processing - INFO - Loaded 99441 orders
+2025-07-31 05:47:29,086 - src.data_processing - INFO - All datasets loaded successfully
+2025-07-31 05:47:29,250 - src.data_processing - INFO - Date preprocessing completed
+2025-07-31 05:47:29,250 - src.data_processing - INFO - Creating customer features...
+2025-07-31 05:47:30,022 - src.data_processing - INFO - Created features for 95419 customers
+2025-07-31 05:47:30,022 - src.data_processing - INFO - Churn rate: 70.56% (Churned: 67328, Active: 28091)
+2025-07-31 05:47:30,035 - src.data_processing - INFO - Creating RFM segments...
+2025-07-31 05:47:31,202 - src.data_processing - INFO - RFM segmentation completed
+2025-07-31 05:47:31,210 - src.data_processing - INFO - Preparing data for ML models...
+2025-07-31 05:47:33,940 - src.data_processing - INFO - ML data prepared - Train: 76335, Test: 19084
+2025-07-31 05:47:33,940 - src.data_processing - INFO - Churn rate - Train: 70.56%, Test: 70.56%
+2025-07-31 05:47:33,948 - src.data_processing - INFO - Data processing pipeline completed successfully
+2025-07-31 05:47:33,948 - __main__ - INFO - \u2713 Basic data processing completed
+2025-07-31 05:47:35,060 - __main__ - INFO - ============================================================
+2025-07-31 05:47:35,060 - __main__ - INFO - STEP 2: Exploratory Data Analysis
+2025-07-31 05:47:35,060 - __main__ - INFO - ============================================================
+2025-07-31 05:47:35,060 - src.eda - INFO - Customer Analytics EDA initialized
+2025-07-31 05:47:35,431 - src.eda - INFO - Loaded customer features: (95419, 22)
+2025-07-31 05:47:35,431 - src.eda - INFO - Generating basic statistics...
+2025-07-31 05:47:35,439 - src.eda - INFO - Total Customers: 95419
+2025-07-31 05:47:35,439 - src.eda - INFO - Churned Customers: 67328
+2025-07-31 05:47:35,439 - src.eda - INFO - Churn Rate: 70.56%
+2025-07-31 05:47:35,439 - src.eda - INFO - Avg Customer Lifetime Value: $212.83
+2025-07-31 05:47:35,439 - src.eda - INFO - Total Revenue: $20,308,134.71
+2025-07-31 05:47:35,439 - src.eda - INFO - Avg Orders per Customer: 1.03
+2025-07-31 05:47:35,448 - src.eda - INFO - Creating visualizations...
+2025-07-31 05:47:39,641 - src.eda - INFO - Visualizations created successfully
+2025-07-31 05:47:39,641 - src.eda - INFO - Performing cohort analysis...
+2025-07-31 05:47:39,698 - src.eda - INFO - Cohort analysis completed
+2025-07-31 05:47:39,698 - src.eda - INFO - EDA pipeline completed successfully
+2025-07-31 05:47:39,698 - __main__ - INFO - \u2713 EDA completed with visualizations
+2025-07-31 05:47:40,708 - __main__ - INFO - ============================================================
+2025-07-31 05:47:40,708 - __main__ - INFO - STEP 3: Advanced Feature Engineering
+2025-07-31 05:47:40,708 - __main__ - INFO - ============================================================
+2025-07-31 05:47:42,637 - src.advanced_feature_engineering - INFO - Advanced Feature Engineering initialized
+2025-07-31 05:47:42,637 - src.advanced_feature_engineering - INFO - Combining all advanced features...
+2025-07-31 05:47:44,823 - src.advanced_feature_engineering - INFO - Creating product category features...
+2025-07-31 05:47:54,598 - src.advanced_feature_engineering - INFO - Created category features for 94087 customers
+2025-07-31 05:47:54,638 - src.advanced_feature_engineering - INFO - Creating temporal features...
+2025-07-31 05:48:46,324 - src.advanced_feature_engineering - INFO - Created temporal features for 95419 customers
+2025-07-31 05:48:46,330 - src.advanced_feature_engineering - INFO - Creating delivery satisfaction features...
+2025-07-31 05:48:47,489 - src.advanced_feature_engineering - INFO - Created delivery features for 95419 customers
+2025-07-31 05:48:47,489 - src.advanced_feature_engineering - INFO - Creating customer engagement features...
+2025-07-31 05:49:30,515 - src.advanced_feature_engineering - INFO - Created engagement features for 95419 customers
+2025-07-31 05:49:30,531 - src.advanced_feature_engineering - INFO - Creating geographic features...
+2025-07-31 05:49:31,317 - src.advanced_feature_engineering - INFO - Created geographic features for 95419 customers
+2025-07-31 05:49:31,319 - src.advanced_feature_engineering - INFO - Creating price sensitivity features...
+2025-07-31 05:49:31,713 - src.advanced_feature_engineering - INFO - Created price sensitivity features for 95419 customers
+2025-07-31 05:49:35,156 - src.advanced_feature_engineering - INFO - Combined features shape: (95419, 85)
+2025-07-31 05:49:35,156 - src.advanced_feature_engineering - INFO - Total features: 85
+2025-07-31 05:49:35,156 - src.advanced_feature_engineering - INFO - Feature summary: {'total_features': 85, 'basic_features': 22, 'category_features': 5, 'temporal_features': 11, 'delivery_features': 11, 'engagement_features': 16, 'geographic_features': 12, 'price_features': 14}
+2025-07-31 05:49:35,234 - src.advanced_feature_engineering - INFO - Advanced feature engineering completed successfully
+2025-07-31 05:49:37,873 - __main__ - INFO - \u2713 Created 85 total features
+2025-07-31 05:49:38,891 - __main__ - INFO - ============================================================
+2025-07-31 05:49:38,891 - __main__ - INFO - STEP 4: NLP Analysis (Optional)
+2025-07-31 05:49:38,891 - __main__ - INFO - ============================================================
+2025-07-31 05:49:38,891 - src.nlp_analysis - INFO - Customer Review Analyzer initialized
+2025-07-31 05:49:38,891 - src.nlp_analysis - INFO - Loading SpaCy model...
+2025-07-31 05:49:39,611 - src.nlp_analysis - INFO - SpaCy model loaded successfully
+2025-07-31 05:49:39,611 - src.nlp_analysis - INFO - Loading customer reviews...
+2025-07-31 05:49:39,908 - src.nlp_analysis - INFO - Loaded 40977 reviews with comments
+2025-07-31 05:49:39,910 - src.nlp_analysis - INFO - Analyzing review sentiment...
+2025-07-31 05:49:44,754 - src.nlp_analysis - INFO - Sentiment analysis completed
+2025-07-31 05:49:44,769 - src.nlp_analysis - INFO - Extracting topics from reviews...
+2025-07-31 05:50:10,106 - src.nlp_analysis - INFO - Extracted 10 topics
+2025-07-31 05:50:10,122 - src.nlp_analysis - INFO - Analyzing keywords by rating...
+2025-07-31 05:50:51,313 - src.nlp_analysis - INFO - Keyword analysis completed
+2025-07-31 05:50:51,316 - src.nlp_analysis - INFO - Creating review-based features...
+2025-07-31 05:50:55,215 - src.nlp_analysis - INFO - Created review features for 40836 customers
+2025-07-31 05:50:55,230 - src.nlp_analysis - INFO - NLP analysis pipeline completed successfully
+2025-07-31 05:50:55,230 - __main__ - INFO - \u2713 NLP analysis completed
+2025-07-31 05:50:56,299 - __main__ - INFO - ============================================================
+2025-07-31 05:50:56,299 - __main__ - INFO - STEP 5: Advanced Model Training
+2025-07-31 05:50:56,299 - __main__ - INFO - ============================================================
+2025-07-31 05:50:56,582 - src.model_training_advanced - INFO - Advanced Churn Model Training initialized
+2025-07-31 05:50:56,582 - src.model_training_advanced - INFO - Loading processed data...
+2025-07-31 05:50:56,681 - src.model_training_advanced - INFO - Loaded training data: (76335, 13)
+2025-07-31 05:50:56,683 - src.model_training_advanced - INFO - Class distribution - Train: [22473 53862]
+2025-07-31 05:50:56,689 - src.model_training_advanced - INFO - Class imbalance ratio: 0.42:1
+2025-07-31 05:50:56,691 - src.model_training_advanced - INFO - Training models with SMOTE...
+2025-07-31 05:50:56,783 - src.model_training_advanced - INFO - Training Logistic_Regression_SMOTE...
+2025-07-31 05:51:15,565 - src.model_training_advanced - INFO - Logistic_Regression_SMOTE - Accuracy: 0.9847, ROC-AUC: 0.9993
+2025-07-31 05:51:15,640 - src.model_training_advanced - INFO - Training Random_Forest_SMOTE...
+2025-07-31 05:51:22,253 - src.model_training_advanced - INFO - Random_Forest_SMOTE - Accuracy: 0.9976, ROC-AUC: 1.0000
+2025-07-31 05:51:22,336 - src.model_training_advanced - INFO - Training XGBoost_SMOTE...
+2025-07-31 05:51:24,252 - src.model_training_advanced - ERROR - Error training with SMOTE: Must have at least 1 validation dataset for early stopping.
+2025-07-31 05:51:24,256 - __main__ - ERROR - Error in advanced modeling: Failed to train with SMOTE | Error: Must have at least 1 validation dataset for early stopping. | File: C:\Users\vedan\Desktop\ecommerece\src\model_training_advanced.py | Line: 123
+2025-07-31 05:51:24,260 - __main__ - ERROR - Pipeline failed: Advanced modeling failed | Error: Failed to train with SMOTE | Error: Must have at least 1 validation dataset for early stopping. | File: C:\Users\vedan\Desktop\ecommerece\src\model_training_advanced.py | Line: 123 | File: C:\Users\vedan\Desktop\ecommerece\pipeline\complete_pipeline.py | Line: 121
+2025-07-31 05:53:10,328 - __main__ - INFO - Complete Analytics Pipeline initialized
+2025-07-31 05:53:10,547 - __main__ - INFO - ============================================================
+2025-07-31 05:53:10,547 - __main__ - INFO - STARTING COMPLETE CUSTOMER ANALYTICS PIPELINE
+2025-07-31 05:53:10,547 - __main__ - INFO - ============================================================
+2025-07-31 05:53:10,558 - __main__ - INFO - ============================================================
+2025-07-31 05:53:10,558 - __main__ - INFO - STEP 1: Basic Data Processing
+2025-07-31 05:53:10,558 - __main__ - INFO - ============================================================
+2025-07-31 05:53:10,558 - src.data_processing - INFO - Customer Data Processor initialized
+2025-07-31 05:53:10,558 - src.data_processing - INFO - Loading ecommerce datasets...
+2025-07-31 05:53:11,664 - src.data_processing - INFO - Loaded 99441 customers
+2025-07-31 05:53:11,664 - src.data_processing - INFO - Loaded 99441 orders
+2025-07-31 05:53:11,664 - src.data_processing - INFO - All datasets loaded successfully
+2025-07-31 05:53:11,790 - src.data_processing - INFO - Date preprocessing completed
+2025-07-31 05:53:11,790 - src.data_processing - INFO - Creating customer features...
+2025-07-31 05:53:12,323 - src.data_processing - INFO - Created features for 95419 customers
+2025-07-31 05:53:12,323 - src.data_processing - INFO - Churn rate: 70.56% (Churned: 67328, Active: 28091)
+2025-07-31 05:53:12,338 - src.data_processing - INFO - Creating RFM segments...
+2025-07-31 05:53:13,203 - src.data_processing - INFO - RFM segmentation completed
+2025-07-31 05:53:13,213 - src.data_processing - INFO - Preparing data for ML models...
+2025-07-31 05:53:14,158 - src.data_processing - INFO - ML data prepared - Train: 76335, Test: 19084
+2025-07-31 05:53:14,159 - src.data_processing - INFO - Churn rate - Train: 70.56%, Test: 70.56%
+2025-07-31 05:53:14,160 - src.data_processing - INFO - Data processing pipeline completed successfully
+2025-07-31 05:53:14,160 - __main__ - INFO - \u2713 Basic data processing completed
+2025-07-31 05:53:15,232 - __main__ - INFO - ============================================================
+2025-07-31 05:53:15,232 - __main__ - INFO - STEP 2: Exploratory Data Analysis
+2025-07-31 05:53:15,232 - __main__ - INFO - ============================================================
+2025-07-31 05:53:15,232 - src.eda - INFO - Customer Analytics EDA initialized
+2025-07-31 05:53:15,835 - src.eda - INFO - Loaded customer features: (95419, 22)
+2025-07-31 05:53:15,835 - src.eda - INFO - Generating basic statistics...
+2025-07-31 05:53:15,838 - src.eda - INFO - Total Customers: 95419
+2025-07-31 05:53:15,838 - src.eda - INFO - Churned Customers: 67328
+2025-07-31 05:53:15,838 - src.eda - INFO - Churn Rate: 70.56%
+2025-07-31 05:53:15,838 - src.eda - INFO - Avg Customer Lifetime Value: $212.83
+2025-07-31 05:53:15,838 - src.eda - INFO - Total Revenue: $20,308,134.71
+2025-07-31 05:53:15,838 - src.eda - INFO - Avg Orders per Customer: 1.03
+2025-07-31 05:53:15,908 - src.eda - INFO - Creating visualizations...
+2025-07-31 05:53:19,093 - src.eda - INFO - Visualizations created successfully
+2025-07-31 05:53:19,093 - src.eda - INFO - Performing cohort analysis...
+2025-07-31 05:53:19,154 - src.eda - INFO - Cohort analysis completed
+2025-07-31 05:53:19,154 - src.eda - INFO - EDA pipeline completed successfully
+2025-07-31 05:53:19,154 - __main__ - INFO - \u2713 EDA completed with visualizations
+2025-07-31 05:53:20,167 - __main__ - INFO - ============================================================
+2025-07-31 05:53:20,167 - __main__ - INFO - STEP 3: Advanced Feature Engineering
+2025-07-31 05:53:20,167 - __main__ - INFO - ============================================================
+2025-07-31 05:53:20,715 - src.advanced_feature_engineering - INFO - Advanced Feature Engineering initialized
+2025-07-31 05:53:20,715 - src.advanced_feature_engineering - INFO - Combining all advanced features...
+2025-07-31 05:53:22,625 - src.advanced_feature_engineering - INFO - Creating product category features...
+2025-07-31 05:53:30,361 - src.advanced_feature_engineering - INFO - Created category features for 94087 customers
+2025-07-31 05:53:30,390 - src.advanced_feature_engineering - INFO - Creating temporal features...
+2025-07-31 05:54:28,291 - src.advanced_feature_engineering - INFO - Created temporal features for 95419 customers
+2025-07-31 05:54:28,304 - src.advanced_feature_engineering - INFO - Creating delivery satisfaction features...
+2025-07-31 05:54:29,546 - src.advanced_feature_engineering - INFO - Created delivery features for 95419 customers
+2025-07-31 05:54:29,546 - src.advanced_feature_engineering - INFO - Creating customer engagement features...
+2025-07-31 05:55:19,284 - src.advanced_feature_engineering - INFO - Created engagement features for 95419 customers
+2025-07-31 05:55:19,291 - src.advanced_feature_engineering - INFO - Creating geographic features...
+2025-07-31 05:55:20,127 - src.advanced_feature_engineering - INFO - Created geographic features for 95419 customers
+2025-07-31 05:55:20,135 - src.advanced_feature_engineering - INFO - Creating price sensitivity features...
+2025-07-31 05:55:20,526 - src.advanced_feature_engineering - INFO - Created price sensitivity features for 95419 customers
+2025-07-31 05:55:24,087 - src.advanced_feature_engineering - INFO - Combined features shape: (95419, 85)
+2025-07-31 05:55:24,087 - src.advanced_feature_engineering - INFO - Total features: 85
+2025-07-31 05:55:24,087 - src.advanced_feature_engineering - INFO - Feature summary: {'total_features': 85, 'basic_features': 22, 'category_features': 5, 'temporal_features': 11, 'delivery_features': 11, 'engagement_features': 16, 'geographic_features': 12, 'price_features': 14}
+2025-07-31 05:55:24,170 - src.advanced_feature_engineering - INFO - Advanced feature engineering completed successfully
+2025-07-31 05:55:27,399 - __main__ - INFO - \u2713 Created 85 total features
+2025-07-31 05:55:28,415 - __main__ - INFO - ============================================================
+2025-07-31 05:55:28,415 - __main__ - INFO - STEP 4: NLP Analysis (Optional)
+2025-07-31 05:55:28,415 - __main__ - INFO - ============================================================
+2025-07-31 05:55:28,415 - src.nlp_analysis - INFO - Customer Review Analyzer initialized
+2025-07-31 05:55:28,415 - src.nlp_analysis - INFO - Loading SpaCy model...
+2025-07-31 05:55:29,177 - src.nlp_analysis - INFO - SpaCy model loaded successfully
+2025-07-31 05:55:29,177 - src.nlp_analysis - INFO - Loading customer reviews...
+2025-07-31 05:55:30,279 - src.nlp_analysis - INFO - Loaded 40977 reviews with comments
+2025-07-31 05:55:30,279 - src.nlp_analysis - INFO - Analyzing review sentiment...
+2025-07-31 05:55:37,471 - src.nlp_analysis - INFO - Sentiment analysis completed
+2025-07-31 05:55:37,477 - src.nlp_analysis - INFO - Extracting topics from reviews...
+2025-07-31 05:56:14,896 - src.nlp_analysis - INFO - Extracted 10 topics
+2025-07-31 05:56:14,913 - src.nlp_analysis - INFO - Analyzing keywords by rating...
+2025-07-31 05:57:07,174 - src.nlp_analysis - INFO - Keyword analysis completed
+2025-07-31 05:57:07,191 - src.nlp_analysis - INFO - Creating review-based features...
+2025-07-31 05:57:12,142 - src.nlp_analysis - INFO - Created review features for 40836 customers
+2025-07-31 05:57:12,161 - src.nlp_analysis - INFO - NLP analysis pipeline completed successfully
+2025-07-31 05:57:12,161 - __main__ - INFO - \u2713 NLP analysis completed
+2025-07-31 05:57:13,283 - __main__ - INFO - ============================================================
+2025-07-31 05:57:13,283 - __main__ - INFO - STEP 5: Advanced Model Training
+2025-07-31 05:57:13,283 - __main__ - INFO - ============================================================
+2025-07-31 05:57:13,480 - src.model_training_advanced - INFO - Advanced Churn Model Training initialized
+2025-07-31 05:57:13,480 - src.model_training_advanced - INFO - Loading processed data...
+2025-07-31 05:57:13,554 - src.model_training_advanced - INFO - Loaded training data: (76335, 13)
+2025-07-31 05:57:13,562 - src.model_training_advanced - INFO - Class distribution - Train: [22473 53862]
+2025-07-31 05:57:13,562 - src.model_training_advanced - INFO - Class imbalance ratio: 0.42:1
+2025-07-31 05:57:13,562 - src.model_training_advanced - INFO - Training models with SMOTE...
+2025-07-31 05:57:13,704 - src.model_training_advanced - INFO - Training Logistic_Regression_SMOTE...
+2025-07-31 05:57:34,911 - src.model_training_advanced - INFO - Logistic_Regression_SMOTE - Accuracy: 0.9847, ROC-AUC: 0.9993
+2025-07-31 05:57:34,983 - src.model_training_advanced - INFO - Training Random_Forest_SMOTE...
+2025-07-31 05:57:42,416 - src.model_training_advanced - INFO - Random_Forest_SMOTE - Accuracy: 0.9976, ROC-AUC: 1.0000
+2025-07-31 05:57:42,489 - src.model_training_advanced - INFO - Training XGBoost_SMOTE...
+2025-07-31 05:57:44,634 - src.model_training_advanced - ERROR - Error training with SMOTE: Must have at least 1 validation dataset for early stopping.
+2025-07-31 05:57:44,639 - __main__ - ERROR - Error in advanced modeling: Failed to train with SMOTE | Error: Must have at least 1 validation dataset for early stopping. | File: C:\Users\vedan\Desktop\ecommerece\src\model_training_advanced.py | Line: 123
+2025-07-31 05:57:44,643 - __main__ - ERROR - Pipeline failed: Advanced modeling failed | Error: Failed to train with SMOTE | Error: Must have at least 1 validation dataset for early stopping. | File: C:\Users\vedan\Desktop\ecommerece\src\model_training_advanced.py | Line: 123 | File: C:\Users\vedan\Desktop\ecommerece\pipeline\complete_pipeline.py | Line: 121
+2025-07-31 06:01:12,963 - __main__ - INFO - Leakage-Prevented Pipeline initialized
+2025-07-31 06:01:14,048 - __main__ - INFO - ============================================================
+2025-07-31 06:01:14,048 - __main__ - INFO - STARTING LEAKAGE-PREVENTED PIPELINE
+2025-07-31 06:01:14,048 - __main__ - INFO - ============================================================
+2025-07-31 06:01:14,065 - __main__ - INFO - ============================================================
+2025-07-31 06:01:14,065 - __main__ - INFO - STEP 1: Data Processing (No Leakage)
+2025-07-31 06:01:14,065 - __main__ - INFO - ============================================================
+2025-07-31 06:01:14,065 - src.data_processing_fixed - INFO - Loading datasets...
+2025-07-31 06:01:15,006 - src.data_processing_fixed - INFO - Data loaded successfully
+2025-07-31 06:01:15,164 - src.data_processing_fixed - INFO - Preparing ML data without leakage...
+2025-07-31 06:01:15,629 - src.data_processing_fixed - INFO - Found 93358 unique customers
+2025-07-31 06:01:15,629 - src.data_processing_fixed - INFO - Performing temporal customer split...
+2025-07-31 06:01:15,787 - src.data_processing_fixed - INFO - Train customers: 74686, Test customers: 18672
+2025-07-31 06:01:15,787 - src.data_processing_fixed - INFO - Temporal cutoff date: 2018-05-26 12:03:49.200000
+2025-07-31 06:01:15,837 - src.data_processing_fixed - INFO - Creating features for 74686 customers with reference date: 2018-05-26 12:03:49.200000
+2025-07-31 06:01:16,018 - src.data_processing_fixed - ERROR - Error creating features: Bin labels must be one fewer than the number of bin edges
+2025-07-31 06:01:16,018 - src.data_processing_fixed - ERROR - Error preparing ML data: Failed to create features | Error: Bin labels must be one fewer than the number of bin edges | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 201
+2025-07-31 06:01:16,018 - __main__ - ERROR - Error in data processing: Failed to prepare ML data | Error: Failed to create features | Error: Bin labels must be one fewer than the number of bin edges | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 201 | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 227
+2025-07-31 06:01:16,024 - __main__ - ERROR - Pipeline failed: Data processing failed | Error: Failed to prepare ML data | Error: Failed to create features | Error: Bin labels must be one fewer than the number of bin edges | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 201 | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 227 | File: C:\Users\vedan\Desktop\ecommerece\pipeline\complete_pipeline_fixed.py | Line: 46
+2025-07-31 06:02:34,263 - __main__ - INFO - Leakage-Prevented Pipeline initialized
+2025-07-31 06:02:35,080 - __main__ - INFO - ============================================================
+2025-07-31 06:02:35,080 - __main__ - INFO - STARTING LEAKAGE-PREVENTED PIPELINE
+2025-07-31 06:02:35,080 - __main__ - INFO - ============================================================
+2025-07-31 06:02:35,080 - __main__ - INFO - ============================================================
+2025-07-31 06:02:35,080 - __main__ - INFO - STEP 1: Data Processing (No Leakage)
+2025-07-31 06:02:35,080 - __main__ - INFO - ============================================================
+2025-07-31 06:02:35,080 - src.data_processing_fixed - INFO - Loading datasets...
+2025-07-31 06:02:35,831 - src.data_processing_fixed - INFO - Data loaded successfully
+2025-07-31 06:02:35,979 - src.data_processing_fixed - INFO - Preparing ML data without leakage...
+2025-07-31 06:02:36,509 - src.data_processing_fixed - INFO - Found 93358 unique customers
+2025-07-31 06:02:36,509 - src.data_processing_fixed - INFO - Performing temporal customer split...
+2025-07-31 06:02:36,698 - src.data_processing_fixed - INFO - Train customers: 74686, Test customers: 18672
+2025-07-31 06:02:36,698 - src.data_processing_fixed - INFO - Temporal cutoff date: 2018-05-26 12:03:49.200000
+2025-07-31 06:02:36,773 - src.data_processing_fixed - INFO - Creating features for 74686 customers with reference date: 2018-05-26 12:03:49.200000
+2025-07-31 06:02:37,068 - src.data_processing_fixed - ERROR - Error creating features: Bin labels must be one fewer than the number of bin edges
+2025-07-31 06:02:37,068 - src.data_processing_fixed - ERROR - Error preparing ML data: Failed to create features | Error: Bin labels must be one fewer than the number of bin edges | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 213
+2025-07-31 06:02:37,068 - __main__ - ERROR - Error in data processing: Failed to prepare ML data | Error: Failed to create features | Error: Bin labels must be one fewer than the number of bin edges | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 213 | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 242
+2025-07-31 06:02:37,075 - __main__ - ERROR - Pipeline failed: Data processing failed | Error: Failed to prepare ML data | Error: Failed to create features | Error: Bin labels must be one fewer than the number of bin edges | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 213 | File: C:\Users\vedan\Desktop\ecommerece\src\data_processing_fixed.py | Line: 242 | File: C:\Users\vedan\Desktop\ecommerece\pipeline\complete_pipeline_fixed.py | Line: 46
+2025-07-31 06:03:59,355 - __main__ - INFO - Leakage-Prevented Pipeline initialized
+2025-07-31 06:04:00,111 - __main__ - INFO - ============================================================
+2025-07-31 06:04:00,111 - __main__ - INFO - STARTING LEAKAGE-PREVENTED PIPELINE
+2025-07-31 06:04:00,111 - __main__ - INFO - ============================================================
+2025-07-31 06:04:00,127 - __main__ - INFO - ============================================================
+2025-07-31 06:04:00,127 - __main__ - INFO - STEP 1: Data Processing (No Leakage)
+2025-07-31 06:04:00,127 - __main__ - INFO - ============================================================
+2025-07-31 06:04:00,128 - src.data_processing_fixed - INFO - Loading datasets...
+2025-07-31 06:04:00,833 - src.data_processing_fixed - INFO - Data loaded successfully
+2025-07-31 06:04:00,971 - src.data_processing_fixed - INFO - Preparing ML data without leakage...
+2025-07-31 06:04:01,267 - src.data_processing_fixed - INFO - Found 93358 unique customers
+2025-07-31 06:04:01,267 - src.data_processing_fixed - INFO - Performing temporal customer split...
+2025-07-31 06:04:01,411 - src.data_processing_fixed - INFO - Train customers: 74686, Test customers: 18672
+2025-07-31 06:04:01,411 - src.data_processing_fixed - INFO - Temporal cutoff date: 2018-05-26 12:03:49.200000
+2025-07-31 06:04:01,460 - src.data_processing_fixed - INFO - Creating features for 74686 customers with reference date: 2018-05-26 12:03:49.200000
+2025-07-31 06:04:01,645 - src.data_processing_fixed - WARNING - qcut failed for frequency, using rank method: Bin labels must be one fewer than the number of bin edges
+2025-07-31 06:04:01,695 - src.data_processing_fixed - INFO - Creating features for 18672 customers with reference date: 2018-08-29 15:00:37
+2025-07-31 06:04:01,743 - src.data_processing_fixed - WARNING - qcut failed for frequency, using rank method: Bin labels must be one fewer than the number of bin edges
+2025-07-31 06:04:01,846 - src.data_processing_fixed - INFO - Train set: (74686, 13), Test set: (18672, 13)
+2025-07-31 06:04:01,846 - src.data_processing_fixed - INFO - Train churn rate: 0.466, Test churn rate: 0.000
+2025-07-31 06:04:01,900 - src.data_processing_fixed - INFO - Created 5 stratified k-fold splits
+2025-07-31 06:04:01,900 - src.data_processing_fixed - INFO - Data processing pipeline completed successfully without leakage
+2025-07-31 06:04:01,900 - __main__ - INFO - \u2713 Data processing completed without leakage
+2025-07-31 06:04:01,900 - __main__ - INFO - \u2713 Temporal split ensures no future data in training set
+2025-07-31 06:04:01,900 - __main__ - INFO - \u2713 Features calculated separately for train/test
+2025-07-31 06:04:01,964 - __main__ - INFO - ============================================================
+2025-07-31 06:04:01,964 - __main__ - INFO - STEP 2: Model Training with K-Fold CV
+2025-07-31 06:04:01,964 - __main__ - INFO - ============================================================
+2025-07-31 06:04:02,037 - src.model_training_with_cv - INFO - Loading processed data...
+2025-07-31 06:04:02,070 - src.model_training_with_cv - INFO - Loaded training data: (74686, 13)
+2025-07-31 06:04:02,070 - src.model_training_with_cv - INFO - Train churn rate: 0.466
+2025-07-31 06:04:02,070 - src.model_training_with_cv - INFO - Test churn rate: 0.000
+2025-07-31 06:04:02,070 - src.model_training_with_cv - INFO - Training models with 5-fold cross-validation...
+2025-07-31 06:04:02,078 - src.model_training_with_cv - INFO - 
+Training Logistic_Regression with cross-validation...
+2025-07-31 06:04:08,391 - src.model_training_with_cv - INFO - Logistic_Regression CV Results:
+2025-07-31 06:04:08,391 - src.model_training_with_cv - INFO -   Train Accuracy: 0.9682 (±0.0003)
+2025-07-31 06:04:08,391 - src.model_training_with_cv - INFO -   Val Accuracy: 0.9682 (±0.0012)
+2025-07-31 06:04:08,391 - src.model_training_with_cv - INFO -   Overfit Gap: 0.0000
+2025-07-31 06:04:08,391 - src.model_training_with_cv - INFO -   Val ROC-AUC: 0.9998 (±0.0001)
+2025-07-31 06:04:11,519 - src.model_training_with_cv - INFO -   Test Accuracy: 0.7578
+2025-07-31 06:04:11,519 - src.model_training_with_cv - INFO -   Test ROC-AUC: nan
+2025-07-31 06:04:11,519 - src.model_training_with_cv - INFO - 
+Training Random_Forest with cross-validation...
+2025-07-31 06:04:15,225 - src.model_training_with_cv - INFO - Random_Forest CV Results:
+2025-07-31 06:04:15,225 - src.model_training_with_cv - INFO -   Train Accuracy: 0.9995 (±0.0001)
+2025-07-31 06:04:15,225 - src.model_training_with_cv - INFO -   Val Accuracy: 0.9995 (±0.0002)
+2025-07-31 06:04:15,225 - src.model_training_with_cv - INFO -   Overfit Gap: -0.0000
+2025-07-31 06:04:15,225 - src.model_training_with_cv - INFO -   Val ROC-AUC: 1.0000 (±0.0000)
+2025-07-31 06:04:16,540 - src.model_training_with_cv - INFO -   Test Accuracy: 1.0000
+2025-07-31 06:04:16,540 - src.model_training_with_cv - INFO -   Test ROC-AUC: nan
+2025-07-31 06:04:16,600 - src.model_training_with_cv - INFO - 
+Training Gradient_Boosting with cross-validation...
+2025-07-31 06:04:19,380 - src.model_training_with_cv - INFO - Gradient_Boosting CV Results:
+2025-07-31 06:04:19,380 - src.model_training_with_cv - INFO -   Train Accuracy: 0.9997 (±0.0002)
+2025-07-31 06:04:19,380 - src.model_training_with_cv - INFO -   Val Accuracy: 0.9996 (±0.0003)
+2025-07-31 06:04:19,380 - src.model_training_with_cv - INFO -   Overfit Gap: 0.0001
+2025-07-31 06:04:19,380 - src.model_training_with_cv - INFO -   Val ROC-AUC: 1.0000 (±0.0000)
+2025-07-31 06:04:20,374 - src.model_training_with_cv - INFO -   Test Accuracy: 1.0000
+2025-07-31 06:04:20,374 - src.model_training_with_cv - INFO -   Test ROC-AUC: nan
+2025-07-31 06:04:20,390 - src.model_training_with_cv - INFO - 
+Training XGBoost with cross-validation...
+2025-07-31 06:04:21,222 - src.model_training_with_cv - INFO - XGBoost CV Results:
+2025-07-31 06:04:21,223 - src.model_training_with_cv - INFO -   Train Accuracy: 0.9995 (±0.0001)
+2025-07-31 06:04:21,223 - src.model_training_with_cv - INFO -   Val Accuracy: 0.9995 (±0.0002)
+2025-07-31 06:04:21,223 - src.model_training_with_cv - INFO -   Overfit Gap: -0.0000
+2025-07-31 06:04:21,223 - src.model_training_with_cv - INFO -   Val ROC-AUC: 1.0000 (±0.0000)
+2025-07-31 06:04:21,340 - src.model_training_with_cv - INFO -   Test Accuracy: 1.0000
+2025-07-31 06:04:21,342 - src.model_training_with_cv - INFO -   Test ROC-AUC: nan
+2025-07-31 06:04:21,360 - src.model_training_with_cv - INFO - Plotting CV results...
+2025-07-31 06:04:22,604 - src.model_training_with_cv - INFO - CV results plotted successfully
+2025-07-31 06:04:22,604 - src.model_training_with_cv - ERROR - Error generating report: 'charmap' codec can't encode character '\u2705' in position 10: character maps to <undefined>
+2025-07-31 06:04:22,612 - __main__ - ERROR - Error in model training: Failed to generate report | Error: 'charmap' codec can't encode character '\u2705' in position 10: character maps to <undefined> | File: C:\Users\vedan\Desktop\ecommerece\src\model_training_with_cv.py | Line: 302
+2025-07-31 06:04:22,620 - __main__ - ERROR - Pipeline failed: Model training failed | Error: Failed to generate report | Error: 'charmap' codec can't encode character '\u2705' in position 10: character maps to <undefined> | File: C:\Users\vedan\Desktop\ecommerece\src\model_training_with_cv.py | Line: 302 | File: C:\Users\vedan\Desktop\ecommerece\pipeline\complete_pipeline_fixed.py | Line: 65
+2025-07-31 06:19:18,668 - __main__ - INFO - Final Complete Pipeline initialized
+2025-07-31 06:19:18,672 - __main__ - INFO - ======================================================================
+2025-07-31 06:19:18,672 - __main__ - INFO - STARTING FINAL COMPLETE PIPELINE
+2025-07-31 06:19:18,672 - __main__ - INFO - ======================================================================
+2025-07-31 06:19:18,672 - __main__ - INFO - This includes ALL features from previous pipelines
+2025-07-31 06:19:18,672 - __main__ - INFO - but with proper implementation (no leakage, no overfitting)
+2025-07-31 06:19:18,672 - __main__ - INFO - ======================================================================
+2025-07-31 06:19:18,672 - __main__ - INFO - ======================================================================
+2025-07-31 06:19:18,672 - __main__ - INFO - STEP 1: Basic Data Processing
+2025-07-31 06:19:18,672 - __main__ - INFO - ======================================================================
+2025-07-31 06:19:18,672 - src.data_processing_final - INFO - Loading datasets...
+2025-07-31 06:19:19,704 - src.data_processing_final - INFO - Data loaded successfully
+2025-07-31 06:19:19,704 - src.data_processing_final - INFO - Creating customer features...
+2025-07-31 06:19:20,108 - src.data_processing_final - INFO - Using reference date: 2018-08-01 00:00:00
+2025-07-31 06:19:20,460 - src.data_processing_final - INFO - Created features for 93358 customers
+2025-07-31 06:19:20,460 - src.data_processing_final - INFO - Churn rate: 0.522
+2025-07-31 06:19:20,468 - src.data_processing_final - INFO - Preparing ML data...
+2025-07-31 06:19:21,770 - src.data_processing_final - INFO - ML data prepared successfully
+2025-07-31 06:19:21,770 - src.data_processing_final - INFO - Train: (74686, 16), Test: (18672, 16)
+2025-07-31 06:19:21,770 - src.data_processing_final - INFO - Train churn: 0.522, Test churn: 0.522
+2025-07-31 06:19:21,770 - src.data_processing_final - INFO - Final data processing completed successfully
+2025-07-31 06:19:21,770 - __main__ - INFO - \u2713 Basic data processing completed
+2025-07-31 06:19:21,816 - __main__ - INFO - 
+======================================================================
+2025-07-31 06:19:21,828 - __main__ - INFO - STEP 2: Advanced Feature Engineering
+2025-07-31 06:19:21,828 - __main__ - INFO - ======================================================================
+2025-07-31 06:19:22,691 - src.advanced_feature_engineering - INFO - Advanced Feature Engineering initialized
+2025-07-31 06:19:22,691 - __main__ - INFO - Creating advanced features...
+2025-07-31 06:19:24,120 - src.advanced_feature_engineering - INFO - Creating product category features...
+2025-07-31 06:19:36,609 - src.advanced_feature_engineering - INFO - Created category features for 94088 customers
+2025-07-31 06:19:36,634 - src.advanced_feature_engineering - INFO - Creating temporal features...
+2025-07-31 06:20:39,522 - src.advanced_feature_engineering - INFO - Created temporal features for 95420 customers
+2025-07-31 06:20:39,534 - src.advanced_feature_engineering - INFO - Creating geographic features...
+2025-07-31 06:20:40,217 - src.advanced_feature_engineering - ERROR - Error creating geographic features: 'customer_state'
+2025-07-31 06:20:40,217 - __main__ - WARNING - Some advanced features failed: Failed to create geographic features | Error: 'customer_state' | File: C:\Users\vedan\Desktop\ecommerece\src\advanced_feature_engineering.py | Line: 271
+2025-07-31 06:20:40,946 - __main__ - INFO - \u2713 Enhanced features created: (93358, 21)
+2025-07-31 06:20:41,011 - __main__ - INFO - 
+======================================================================
+2025-07-31 06:20:41,011 - __main__ - INFO - STEP 3: Exploratory Data Analysis
+2025-07-31 06:20:41,011 - __main__ - INFO - ======================================================================
+2025-07-31 06:20:41,011 - src.eda - INFO - Customer Analytics EDA initialized
+2025-07-31 06:20:41,336 - src.eda - INFO - Loaded customer features: (93358, 21)
+2025-07-31 06:20:41,336 - src.eda - INFO - Generating basic statistics...
+2025-07-31 06:20:41,336 - src.eda - ERROR - Error generating statistics: 'monetary_value'
+2025-07-31 06:20:41,338 - __main__ - WARNING - EDA failed: Failed to generate statistics | Error: 'monetary_value' | File: C:\Users\vedan\Desktop\ecommerece\src\eda.py | Line: 39
+2025-07-31 06:20:41,342 - __main__ - INFO - 
+======================================================================
+2025-07-31 06:20:41,344 - __main__ - INFO - STEP 4: Model Training
+2025-07-31 06:20:41,344 - __main__ - INFO - ======================================================================
+2025-07-31 06:20:41,345 - src.model_training_final - INFO - Loading processed data...
+2025-07-31 06:20:41,458 - src.model_training_final - INFO - Loaded data - Train: (74686, 16), Test: (18672, 16)
+2025-07-31 06:20:41,458 - src.model_training_final - INFO - Train churn rate: 0.522
+2025-07-31 06:20:41,458 - src.model_training_final - INFO - Test churn rate: 0.522
+2025-07-31 06:20:41,474 - src.model_training_final - INFO - Starting model training with extreme regularization...
+2025-07-31 06:20:41,474 - src.model_training_final - INFO - 
+Training Logistic_Regression_L2...
+2025-07-31 06:20:47,885 - src.model_training_final - INFO - Logistic_Regression_L2 Results:
+2025-07-31 06:20:47,885 - src.model_training_final - INFO -   CV Val Accuracy: 0.560 (±0.005)
+2025-07-31 06:20:47,885 - src.model_training_final - INFO -   CV Overfit Gap: 0.001
+2025-07-31 06:20:47,885 - src.model_training_final - INFO -   Test Accuracy: 0.564
+2025-07-31 06:20:47,885 - src.model_training_final - INFO -   Test ROC-AUC: 0.557
+2025-07-31 06:20:47,885 - src.model_training_final - INFO - 
+Training Logistic_Regression_L1...
+2025-07-31 06:20:53,186 - src.model_training_final - INFO - Logistic_Regression_L1 Results:
+2025-07-31 06:20:53,186 - src.model_training_final - INFO -   CV Val Accuracy: 0.548 (±0.003)
+2025-07-31 06:20:53,186 - src.model_training_final - INFO -   CV Overfit Gap: -0.000
+2025-07-31 06:20:53,186 - src.model_training_final - INFO -   Test Accuracy: 0.554
+2025-07-31 06:20:53,188 - src.model_training_final - INFO -   Test ROC-AUC: 0.542
+2025-07-31 06:20:53,188 - src.model_training_final - INFO - 
+Training Decision_Tree...
+2025-07-31 06:20:56,146 - src.model_training_final - INFO - Decision_Tree Results:
+2025-07-31 06:20:56,146 - src.model_training_final - INFO -   CV Val Accuracy: 0.599 (±0.003)
+2025-07-31 06:20:56,146 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 06:20:56,146 - src.model_training_final - INFO -   Test Accuracy: 0.601
+2025-07-31 06:20:56,146 - src.model_training_final - INFO -   Test ROC-AUC: 0.603
+2025-07-31 06:20:56,146 - src.model_training_final - INFO - 
+Training Random_Forest...
+2025-07-31 06:20:57,448 - src.model_training_final - INFO - Random_Forest Results:
+2025-07-31 06:20:57,448 - src.model_training_final - INFO -   CV Val Accuracy: 0.626 (±0.004)
+2025-07-31 06:20:57,448 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 06:20:57,448 - src.model_training_final - INFO -   Test Accuracy: 0.629
+2025-07-31 06:20:57,448 - src.model_training_final - INFO -   Test ROC-AUC: 0.675
+2025-07-31 06:20:57,448 - src.model_training_final - INFO - 
+Training Gradient_Boosting...
+2025-07-31 06:21:00,083 - src.model_training_final - INFO - Gradient_Boosting Results:
+2025-07-31 06:21:00,083 - src.model_training_final - INFO -   CV Val Accuracy: 0.590 (±0.018)
+2025-07-31 06:21:00,083 - src.model_training_final - INFO -   CV Overfit Gap: 0.001
+2025-07-31 06:21:00,083 - src.model_training_final - INFO -   Test Accuracy: 0.606
+2025-07-31 06:21:00,083 - src.model_training_final - INFO -   Test ROC-AUC: 0.658
+2025-07-31 06:21:00,083 - src.model_training_final - INFO - 
+Training XGBoost...
+2025-07-31 06:21:01,541 - src.model_training_final - INFO - XGBoost Results:
+2025-07-31 06:21:01,541 - src.model_training_final - INFO -   CV Val Accuracy: 0.629 (±0.002)
+2025-07-31 06:21:01,541 - src.model_training_final - INFO -   CV Overfit Gap: -0.000
+2025-07-31 06:21:01,541 - src.model_training_final - INFO -   Test Accuracy: 0.629
+2025-07-31 06:21:01,541 - src.model_training_final - INFO -   Test ROC-AUC: 0.664
+2025-07-31 06:21:01,544 - src.model_training_final - INFO - 
+Training SVM...
+2025-07-31 07:14:32,101 - __main__ - INFO - Final Complete Pipeline initialized
+2025-07-31 07:14:32,101 - __main__ - INFO - ======================================================================
+2025-07-31 07:14:32,101 - __main__ - INFO - STARTING FINAL COMPLETE PIPELINE
+2025-07-31 07:14:32,101 - __main__ - INFO - ======================================================================
+2025-07-31 07:14:32,101 - __main__ - INFO - This includes ALL features from previous pipelines
+2025-07-31 07:14:32,101 - __main__ - INFO - but with proper implementation (no leakage, no overfitting)
+2025-07-31 07:14:32,101 - __main__ - INFO - ======================================================================
+2025-07-31 07:14:32,101 - __main__ - INFO - ======================================================================
+2025-07-31 07:14:32,101 - __main__ - INFO - STEP 1: Basic Data Processing
+2025-07-31 07:14:32,101 - __main__ - INFO - ======================================================================
+2025-07-31 07:14:32,101 - src.data_processing_final - INFO - Loading datasets...
+2025-07-31 07:14:33,003 - src.data_processing_final - INFO - Data loaded successfully
+2025-07-31 07:14:33,004 - src.data_processing_final - INFO - Creating customer features...
+2025-07-31 07:14:33,277 - src.data_processing_final - INFO - Using reference date: 2018-08-01 00:00:00
+2025-07-31 07:14:33,585 - src.data_processing_final - INFO - Created features for 93358 customers
+2025-07-31 07:14:33,585 - src.data_processing_final - INFO - Churn rate: 0.522
+2025-07-31 07:14:33,592 - src.data_processing_final - INFO - Preparing ML data...
+2025-07-31 07:14:34,892 - src.data_processing_final - INFO - ML data prepared successfully
+2025-07-31 07:14:34,892 - src.data_processing_final - INFO - Train: (74686, 19), Test: (18672, 19)
+2025-07-31 07:14:34,892 - src.data_processing_final - INFO - Train churn: 0.522, Test churn: 0.522
+2025-07-31 07:14:34,892 - src.data_processing_final - INFO - Final data processing completed successfully
+2025-07-31 07:14:34,892 - __main__ - INFO - \u2713 Basic data processing completed
+2025-07-31 07:14:34,924 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:14:34,924 - __main__ - INFO - STEP 2: Advanced Feature Engineering
+2025-07-31 07:14:34,924 - __main__ - INFO - ======================================================================
+2025-07-31 07:14:35,591 - src.advanced_feature_engineering - INFO - Advanced Feature Engineering initialized
+2025-07-31 07:14:35,591 - __main__ - INFO - Creating advanced features...
+2025-07-31 07:14:36,512 - src.advanced_feature_engineering - INFO - Creating product category features...
+2025-07-31 07:14:44,797 - src.advanced_feature_engineering - INFO - Created category features for 94088 customers
+2025-07-31 07:14:44,826 - src.advanced_feature_engineering - INFO - Creating temporal features...
+2025-07-31 07:15:32,873 - src.advanced_feature_engineering - INFO - Created temporal features for 95420 customers
+2025-07-31 07:15:32,884 - src.advanced_feature_engineering - INFO - Creating geographic features...
+2025-07-31 07:15:33,781 - src.advanced_feature_engineering - ERROR - Error creating geographic features: 'customer_state'
+2025-07-31 07:15:33,781 - __main__ - WARNING - Some advanced features failed: Failed to create geographic features | Error: 'customer_state' | File: C:\Users\vedan\Desktop\ecommerece\src\advanced_feature_engineering.py | Line: 271
+2025-07-31 07:15:34,680 - __main__ - INFO - \u2713 Enhanced features created: (93358, 24)
+2025-07-31 07:15:34,735 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:15:34,735 - __main__ - INFO - STEP 3: Exploratory Data Analysis
+2025-07-31 07:15:34,735 - __main__ - INFO - ======================================================================
+2025-07-31 07:15:34,735 - src.eda - INFO - Customer Analytics EDA initialized
+2025-07-31 07:15:35,145 - src.eda - INFO - Loaded customer features: (93358, 24)
+2025-07-31 07:15:35,145 - src.eda - INFO - Generating basic statistics...
+2025-07-31 07:15:35,146 - src.eda - ERROR - Error generating statistics: 'monetary_value'
+2025-07-31 07:15:35,146 - __main__ - WARNING - EDA failed: Failed to generate statistics | Error: 'monetary_value' | File: C:\Users\vedan\Desktop\ecommerece\src\eda.py | Line: 39
+2025-07-31 07:15:35,150 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:15:35,152 - __main__ - INFO - STEP 4: Model Training
+2025-07-31 07:15:35,152 - __main__ - INFO - ======================================================================
+2025-07-31 07:15:35,152 - src.model_training_final - INFO - Loading processed data...
+2025-07-31 07:15:36,309 - src.model_training_final - INFO - Loaded data - Train: (74686, 19), Test: (18672, 19)
+2025-07-31 07:15:36,309 - src.model_training_final - INFO - Train churn rate: 0.522
+2025-07-31 07:15:36,309 - src.model_training_final - INFO - Test churn rate: 0.522
+2025-07-31 07:15:36,309 - src.model_training_final - INFO - Starting model training with moderate regularization for ~85% accuracy...
+2025-07-31 07:15:36,309 - src.model_training_final - INFO - 
+Training Logistic_Regression_L2...
+2025-07-31 07:15:51,897 - src.model_training_final - INFO - Logistic_Regression_L2 Results:
+2025-07-31 07:15:51,897 - src.model_training_final - INFO -   CV Val Accuracy: 0.993 (±0.001)
+2025-07-31 07:15:51,897 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:15:51,897 - src.model_training_final - INFO -   Test Accuracy: 0.993
+2025-07-31 07:15:51,897 - src.model_training_final - INFO -   Test ROC-AUC: 1.000
+2025-07-31 07:15:51,897 - src.model_training_final - INFO - 
+Training Logistic_Regression_L1...
+2025-07-31 07:15:54,963 - src.model_training_final - INFO - Logistic_Regression_L1 Results:
+2025-07-31 07:15:54,963 - src.model_training_final - INFO -   CV Val Accuracy: 0.997 (±0.000)
+2025-07-31 07:15:54,963 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:15:54,963 - src.model_training_final - INFO -   Test Accuracy: 0.996
+2025-07-31 07:15:54,963 - src.model_training_final - INFO -   Test ROC-AUC: 1.000
+2025-07-31 07:15:54,963 - src.model_training_final - INFO - 
+Training Decision_Tree...
+2025-07-31 07:15:57,897 - src.model_training_final - INFO - Decision_Tree Results:
+2025-07-31 07:15:57,897 - src.model_training_final - INFO -   CV Val Accuracy: 1.000 (±0.000)
+2025-07-31 07:15:57,897 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:15:57,897 - src.model_training_final - INFO -   Test Accuracy: 0.999
+2025-07-31 07:15:57,897 - src.model_training_final - INFO -   Test ROC-AUC: 1.000
+2025-07-31 07:15:57,897 - src.model_training_final - INFO - 
+Training Random_Forest...
+2025-07-31 07:16:04,887 - src.model_training_final - INFO - Random_Forest Results:
+2025-07-31 07:16:04,887 - src.model_training_final - INFO -   CV Val Accuracy: 1.000 (±0.000)
+2025-07-31 07:16:04,887 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:16:04,887 - src.model_training_final - INFO -   Test Accuracy: 1.000
+2025-07-31 07:16:04,887 - src.model_training_final - INFO -   Test ROC-AUC: 1.000
+2025-07-31 07:16:04,887 - src.model_training_final - INFO - 
+Training Gradient_Boosting...
+2025-07-31 07:16:21,338 - src.model_training_final - INFO - Gradient_Boosting Results:
+2025-07-31 07:16:21,338 - src.model_training_final - INFO -   CV Val Accuracy: 1.000 (±0.000)
+2025-07-31 07:16:21,338 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:16:21,338 - src.model_training_final - INFO -   Test Accuracy: 1.000
+2025-07-31 07:16:21,338 - src.model_training_final - INFO -   Test ROC-AUC: 1.000
+2025-07-31 07:16:21,338 - src.model_training_final - INFO - 
+Training XGBoost...
+2025-07-31 07:16:23,137 - src.model_training_final - INFO - XGBoost Results:
+2025-07-31 07:16:23,137 - src.model_training_final - INFO -   CV Val Accuracy: 1.000 (±0.000)
+2025-07-31 07:16:23,137 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:16:23,137 - src.model_training_final - INFO -   Test Accuracy: 1.000
+2025-07-31 07:16:23,137 - src.model_training_final - INFO -   Test ROC-AUC: 1.000
+2025-07-31 07:16:23,139 - src.model_training_final - INFO - 
+Training SVM...
+2025-07-31 07:16:23,139 - src.model_training_final - INFO - Using subset of data for SVM to speed up training...
+2025-07-31 07:16:50,325 - src.model_training_final - INFO - SVM Results:
+2025-07-31 07:16:50,325 - src.model_training_final - INFO -   CV Val Accuracy: 0.954 (±0.006)
+2025-07-31 07:16:50,325 - src.model_training_final - INFO -   CV Overfit Gap: 0.003
+2025-07-31 07:16:50,326 - src.model_training_final - INFO -   Test Accuracy: 0.959
+2025-07-31 07:16:50,326 - src.model_training_final - INFO -   Test ROC-AUC: 0.987
+2025-07-31 07:16:50,352 - src.model_training_final - INFO - Creating result visualizations...
+2025-07-31 07:16:55,401 - src.model_training_final - INFO - 
+Best model: XGBoost
+2025-07-31 07:16:55,401 - src.model_training_final - INFO - Test ROC-AUC: 1.000
+2025-07-31 07:16:55,401 - src.model_training_final - INFO - Model training completed successfully
+2025-07-31 07:16:55,412 - __main__ - INFO - \u2713 Models trained successfully
+2025-07-31 07:16:55,413 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:16:55,413 - __main__ - INFO - STEP 5: Business Metrics
+2025-07-31 07:16:55,413 - __main__ - INFO - ======================================================================
+2025-07-31 07:16:55,414 - src.business_metrics - INFO - Business Metrics Calculator initialized
+2025-07-31 07:16:55,813 - src.business_metrics - INFO - Loaded customer data: (93358, 24)
+2025-07-31 07:16:55,813 - src.business_metrics - WARNING - Column 'monetary_value' not found, creating with default value 0
+2025-07-31 07:16:55,813 - src.business_metrics - WARNING - Column 'frequency' not found, creating with default value 1
+2025-07-31 07:16:55,813 - src.business_metrics - WARNING - Column 'recency_days' not found, creating with default value 365
+2025-07-31 07:16:55,813 - src.business_metrics - INFO - Calculating Customer Lifetime Value...
+2025-07-31 07:16:55,896 - src.business_metrics - INFO - CLV calculation completed
+2025-07-31 07:16:55,896 - src.business_metrics - INFO - Calculating customer profitability...
+2025-07-31 07:16:55,936 - src.business_metrics - INFO - Profitability calculation completed
+2025-07-31 07:16:55,936 - src.business_metrics - INFO - Calculating retention metrics...
+2025-07-31 07:16:56,235 - src.business_metrics - INFO - Retention metrics calculation completed
+2025-07-31 07:16:56,235 - src.business_metrics - INFO - Calculating marketing metrics...
+2025-07-31 07:16:57,542 - src.business_metrics - ERROR - Error calculating marketing metrics: 'bool' object has no attribute 'astype'
+2025-07-31 07:16:57,544 - __main__ - WARNING - Business metrics failed: Failed to calculate marketing metrics | Error: 'bool' object has no attribute 'astype' | File: C:\Users\vedan\Desktop\ecommerece\src\business_metrics.py | Line: 341
+2025-07-31 07:16:57,552 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:16:57,554 - __main__ - INFO - STEP 6: Cohort Analysis
+2025-07-31 07:16:57,554 - __main__ - INFO - ======================================================================
+2025-07-31 07:16:57,554 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 07:16:57,554 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 07:16:57,554 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 07:16:59,533 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 07:16:59,547 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:16:59,612 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:16:59,612 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 07:16:59,635 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:16:59,635 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 07:16:59,717 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 07:16:59,717 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 07:16:59,717 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 07:16:59,731 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:16:59,731 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:16:59,778 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:16:59,806 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 07:16:59,806 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 07:16:59,911 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 07:16:59,911 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 07:17:05,426 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 07:17:05,427 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 07:17:05,427 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:17:05,480 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:17:05,798 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 07:17:05,800 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 07:17:05,801 - __main__ - INFO - \u2713 Cohort analysis completed
+2025-07-31 07:17:05,817 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:17:05,817 - __main__ - INFO - STEP 7: Recommendation System
+2025-07-31 07:17:05,817 - __main__ - INFO - ======================================================================
+2025-07-31 07:17:05,818 - src.recommendation_engine - INFO - Recommendation Engine initialized
+2025-07-31 07:17:05,818 - src.recommendation_engine - INFO - Loading data for recommendation engine...
+2025-07-31 07:17:06,867 - src.recommendation_engine - INFO - Data loaded successfully for recommendations
+2025-07-31 07:17:06,867 - src.recommendation_engine - INFO - Creating user-item matrix...
+2025-07-31 07:17:07,102 - src.recommendation_engine - INFO - Total users: 95420, Total products: 32951
+2025-07-31 07:17:07,102 - src.recommendation_engine - INFO - Dataset too large, sampling users and products...
+2025-07-31 07:17:07,225 - src.recommendation_engine - INFO - Sampled to 13425 users and 4349 products
+2025-07-31 07:17:07,425 - src.recommendation_engine - INFO - Created sparse user-item matrix: (13425, 4349)
+2025-07-31 07:17:07,425 - src.recommendation_engine - INFO - Matrix density: 0.0269%
+2025-07-31 07:17:07,677 - src.recommendation_engine - INFO - Building collaborative filtering models...
+2025-07-31 07:17:07,677 - src.recommendation_engine - INFO - Computing item similarity matrix...
+2025-07-31 07:17:07,758 - src.recommendation_engine - INFO - Computing user similarity matrix...
+2025-07-31 07:17:07,909 - src.recommendation_engine - INFO - Training SVD model...
+2025-07-31 07:18:07,064 - src.recommendation_engine - INFO - Collaborative filtering models built successfully
+2025-07-31 07:18:07,066 - src.recommendation_engine - INFO - Evaluating recommendation system...
+2025-07-31 07:18:07,141 - src.recommendation_engine - INFO - Recommendation engine pipeline completed successfully
+2025-07-31 07:18:07,142 - __main__ - INFO - \u2713 Recommendation engine built
+2025-07-31 07:18:07,325 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:18:07,325 - __main__ - INFO - STEP 8: NLP Analysis (Optional)
+2025-07-31 07:18:07,325 - __main__ - INFO - ======================================================================
+2025-07-31 07:18:07,325 - src.nlp_analysis - INFO - Customer Review Analyzer initialized
+2025-07-31 07:18:07,325 - src.nlp_analysis - INFO - Loading SpaCy model...
+2025-07-31 07:18:08,456 - src.nlp_analysis - INFO - SpaCy model loaded successfully
+2025-07-31 07:18:08,456 - src.nlp_analysis - INFO - Loading customer reviews...
+2025-07-31 07:18:09,094 - src.nlp_analysis - INFO - Loaded 40977 reviews with comments
+2025-07-31 07:18:09,094 - src.nlp_analysis - INFO - Analyzing review sentiment...
+2025-07-31 07:23:35,052 - __main__ - INFO - Final Complete Pipeline initialized
+2025-07-31 07:23:35,052 - __main__ - INFO - ======================================================================
+2025-07-31 07:23:35,052 - __main__ - INFO - STARTING FINAL COMPLETE PIPELINE
+2025-07-31 07:23:35,052 - __main__ - INFO - ======================================================================
+2025-07-31 07:23:35,052 - __main__ - INFO - This includes ALL features from previous pipelines
+2025-07-31 07:23:35,052 - __main__ - INFO - but with proper implementation (no leakage, no overfitting)
+2025-07-31 07:23:35,052 - __main__ - INFO - ======================================================================
+2025-07-31 07:23:35,052 - __main__ - INFO - ======================================================================
+2025-07-31 07:23:35,052 - __main__ - INFO - STEP 1: Basic Data Processing
+2025-07-31 07:23:35,052 - __main__ - INFO - ======================================================================
+2025-07-31 07:23:35,052 - src.data_processing_balanced - INFO - Loading datasets...
+2025-07-31 07:23:35,868 - src.data_processing_balanced - INFO - Data loaded successfully
+2025-07-31 07:23:35,868 - src.data_processing_balanced - INFO - Creating customer features...
+2025-07-31 07:23:36,139 - src.data_processing_balanced - INFO - Using reference date: 2018-08-01 00:00:00
+2025-07-31 07:23:36,470 - src.data_processing_balanced - INFO - Created features for 93358 customers
+2025-07-31 07:23:36,472 - src.data_processing_balanced - INFO - Churn rate: 0.522
+2025-07-31 07:23:36,472 - src.data_processing_balanced - INFO - Preparing ML data...
+2025-07-31 07:23:37,540 - src.data_processing_balanced - INFO - ML data prepared successfully
+2025-07-31 07:23:37,543 - src.data_processing_balanced - INFO - Train: (74686, 21), Test: (18672, 21)
+2025-07-31 07:23:37,543 - src.data_processing_balanced - INFO - Train churn: 0.522, Test churn: 0.522
+2025-07-31 07:23:37,543 - src.data_processing_balanced - INFO - Balanced data processing completed successfully
+2025-07-31 07:23:37,543 - __main__ - INFO - \u2713 Basic data processing completed
+2025-07-31 07:23:37,577 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:23:37,577 - __main__ - INFO - STEP 2: Advanced Feature Engineering
+2025-07-31 07:23:37,577 - __main__ - INFO - ======================================================================
+2025-07-31 07:23:38,176 - src.advanced_feature_engineering - INFO - Advanced Feature Engineering initialized
+2025-07-31 07:23:38,176 - __main__ - INFO - Creating advanced features...
+2025-07-31 07:23:39,036 - src.advanced_feature_engineering - INFO - Creating product category features...
+2025-07-31 07:23:46,543 - src.advanced_feature_engineering - INFO - Created category features for 94088 customers
+2025-07-31 07:23:46,583 - src.advanced_feature_engineering - INFO - Creating temporal features...
+2025-07-31 07:24:31,883 - src.advanced_feature_engineering - INFO - Created temporal features for 95420 customers
+2025-07-31 07:24:31,893 - src.advanced_feature_engineering - INFO - Creating geographic features...
+2025-07-31 07:24:32,433 - src.advanced_feature_engineering - ERROR - Error creating geographic features: 'customer_state'
+2025-07-31 07:24:32,433 - __main__ - WARNING - Some advanced features failed: Failed to create geographic features | Error: 'customer_state' | File: C:\Users\vedan\Desktop\ecommerece\src\advanced_feature_engineering.py | Line: 271
+2025-07-31 07:24:33,219 - __main__ - INFO - \u2713 Enhanced features created: (93358, 27)
+2025-07-31 07:24:33,277 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:24:33,277 - __main__ - INFO - STEP 3: Exploratory Data Analysis
+2025-07-31 07:24:33,277 - __main__ - INFO - ======================================================================
+2025-07-31 07:24:33,278 - src.eda - INFO - Customer Analytics EDA initialized
+2025-07-31 07:24:33,546 - src.eda - INFO - Loaded customer features: (93358, 27)
+2025-07-31 07:24:33,546 - src.eda - INFO - Generating basic statistics...
+2025-07-31 07:24:33,546 - src.eda - ERROR - Error generating statistics: 'monetary_value'
+2025-07-31 07:24:33,546 - __main__ - WARNING - EDA failed: Failed to generate statistics | Error: 'monetary_value' | File: C:\Users\vedan\Desktop\ecommerece\src\eda.py | Line: 39
+2025-07-31 07:24:33,546 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:24:33,554 - __main__ - INFO - STEP 4: Model Training
+2025-07-31 07:24:33,554 - __main__ - INFO - ======================================================================
+2025-07-31 07:24:33,555 - src.model_training_final - INFO - Loading processed data...
+2025-07-31 07:24:33,623 - src.model_training_final - INFO - Loaded data - Train: (74686, 21), Test: (18672, 21)
+2025-07-31 07:24:33,623 - src.model_training_final - INFO - Train churn rate: 0.522
+2025-07-31 07:24:33,623 - src.model_training_final - INFO - Test churn rate: 0.522
+2025-07-31 07:24:33,624 - src.model_training_final - INFO - Starting model training with moderate regularization for ~85% accuracy...
+2025-07-31 07:24:33,624 - src.model_training_final - INFO - 
+Training Logistic_Regression_L2...
+2025-07-31 07:24:38,746 - src.model_training_final - INFO - Logistic_Regression_L2 Results:
+2025-07-31 07:24:38,746 - src.model_training_final - INFO -   CV Val Accuracy: 0.541 (±0.003)
+2025-07-31 07:24:38,746 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:24:38,746 - src.model_training_final - INFO -   Test Accuracy: 0.539
+2025-07-31 07:24:38,746 - src.model_training_final - INFO -   Test ROC-AUC: 0.555
+2025-07-31 07:24:38,746 - src.model_training_final - INFO - 
+Training Logistic_Regression_L1...
+2025-07-31 07:24:41,979 - src.model_training_final - INFO - Logistic_Regression_L1 Results:
+2025-07-31 07:24:41,979 - src.model_training_final - INFO -   CV Val Accuracy: 0.540 (±0.005)
+2025-07-31 07:24:41,979 - src.model_training_final - INFO -   CV Overfit Gap: 0.002
+2025-07-31 07:24:41,979 - src.model_training_final - INFO -   Test Accuracy: 0.541
+2025-07-31 07:24:41,979 - src.model_training_final - INFO -   Test ROC-AUC: 0.557
+2025-07-31 07:24:41,979 - src.model_training_final - INFO - 
+Training Decision_Tree...
+2025-07-31 07:24:43,713 - src.model_training_final - INFO - Decision_Tree Results:
+2025-07-31 07:24:43,713 - src.model_training_final - INFO -   CV Val Accuracy: 0.654 (±0.005)
+2025-07-31 07:24:43,713 - src.model_training_final - INFO -   CV Overfit Gap: 0.001
+2025-07-31 07:24:43,713 - src.model_training_final - INFO -   Test Accuracy: 0.656
+2025-07-31 07:24:43,713 - src.model_training_final - INFO -   Test ROC-AUC: 0.700
+2025-07-31 07:24:43,713 - src.model_training_final - INFO - 
+Training Random_Forest...
+2025-07-31 07:24:49,339 - src.model_training_final - INFO - Random_Forest Results:
+2025-07-31 07:24:49,339 - src.model_training_final - INFO -   CV Val Accuracy: 0.659 (±0.009)
+2025-07-31 07:24:49,339 - src.model_training_final - INFO -   CV Overfit Gap: 0.002
+2025-07-31 07:24:49,339 - src.model_training_final - INFO -   Test Accuracy: 0.668
+2025-07-31 07:24:49,339 - src.model_training_final - INFO -   Test ROC-AUC: 0.726
+2025-07-31 07:24:49,355 - src.model_training_final - INFO - 
+Training Gradient_Boosting...
+2025-07-31 07:25:05,070 - src.model_training_final - INFO - Gradient_Boosting Results:
+2025-07-31 07:25:05,070 - src.model_training_final - INFO -   CV Val Accuracy: 0.729 (±0.005)
+2025-07-31 07:25:05,070 - src.model_training_final - INFO -   CV Overfit Gap: 0.008
+2025-07-31 07:25:05,070 - src.model_training_final - INFO -   Test Accuracy: 0.737
+2025-07-31 07:25:05,070 - src.model_training_final - INFO -   Test ROC-AUC: 0.812
+2025-07-31 07:25:05,070 - src.model_training_final - INFO - 
+Training XGBoost...
+2025-07-31 07:25:06,624 - src.model_training_final - INFO - XGBoost Results:
+2025-07-31 07:25:06,626 - src.model_training_final - INFO -   CV Val Accuracy: 0.722 (±0.006)
+2025-07-31 07:25:06,626 - src.model_training_final - INFO -   CV Overfit Gap: 0.005
+2025-07-31 07:25:06,626 - src.model_training_final - INFO -   Test Accuracy: 0.725
+2025-07-31 07:25:06,626 - src.model_training_final - INFO -   Test ROC-AUC: 0.802
+2025-07-31 07:25:06,626 - src.model_training_final - INFO - 
+Training SVM...
+2025-07-31 07:25:06,626 - src.model_training_final - INFO - Using subset of data for SVM to speed up training...
+2025-07-31 07:25:51,981 - src.model_training_final - INFO - SVM Results:
+2025-07-31 07:25:51,981 - src.model_training_final - INFO -   CV Val Accuracy: 0.549 (±0.007)
+2025-07-31 07:25:51,997 - src.model_training_final - INFO -   CV Overfit Gap: 0.002
+2025-07-31 07:25:51,997 - src.model_training_final - INFO -   Test Accuracy: 0.537
+2025-07-31 07:25:51,997 - src.model_training_final - INFO -   Test ROC-AUC: 0.545
+2025-07-31 07:25:52,000 - src.model_training_final - INFO - Creating result visualizations...
+2025-07-31 07:25:53,065 - src.model_training_final - INFO - 
+Best model: Gradient_Boosting
+2025-07-31 07:25:53,065 - src.model_training_final - INFO - Test ROC-AUC: 0.812
+2025-07-31 07:25:53,065 - src.model_training_final - INFO - Model training completed successfully
+2025-07-31 07:25:53,065 - __main__ - INFO - \u2713 Models trained successfully
+2025-07-31 07:25:53,081 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:25:53,081 - __main__ - INFO - STEP 5: Business Metrics
+2025-07-31 07:25:53,081 - __main__ - INFO - ======================================================================
+2025-07-31 07:25:53,081 - src.business_metrics - INFO - Business Metrics Calculator initialized
+2025-07-31 07:25:53,330 - src.business_metrics - INFO - Loaded customer data: (93358, 27)
+2025-07-31 07:25:53,330 - src.business_metrics - WARNING - Column 'monetary_value' not found, creating with default value 0
+2025-07-31 07:25:53,330 - src.business_metrics - WARNING - Column 'frequency' not found, creating with default value 1
+2025-07-31 07:25:53,330 - src.business_metrics - WARNING - Column 'recency_days' not found, creating with default value 365
+2025-07-31 07:25:53,330 - src.business_metrics - INFO - Calculating Customer Lifetime Value...
+2025-07-31 07:25:53,361 - src.business_metrics - INFO - CLV calculation completed
+2025-07-31 07:25:53,361 - src.business_metrics - INFO - Calculating customer profitability...
+2025-07-31 07:25:53,368 - src.business_metrics - INFO - Profitability calculation completed
+2025-07-31 07:25:53,368 - src.business_metrics - INFO - Calculating retention metrics...
+2025-07-31 07:25:53,447 - src.business_metrics - INFO - Retention metrics calculation completed
+2025-07-31 07:25:53,447 - src.business_metrics - INFO - Calculating marketing metrics...
+2025-07-31 07:25:54,320 - src.business_metrics - ERROR - Error calculating marketing metrics: 'bool' object has no attribute 'astype'
+2025-07-31 07:25:54,320 - __main__ - WARNING - Business metrics failed: Failed to calculate marketing metrics | Error: 'bool' object has no attribute 'astype' | File: C:\Users\vedan\Desktop\ecommerece\src\business_metrics.py | Line: 341
+2025-07-31 07:25:54,320 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:25:54,320 - __main__ - INFO - STEP 6: Cohort Analysis
+2025-07-31 07:25:54,320 - __main__ - INFO - ======================================================================
+2025-07-31 07:25:54,320 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 07:25:54,327 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 07:25:54,327 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 07:25:55,504 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 07:25:55,528 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:25:55,574 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:25:55,574 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 07:25:55,593 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:25:55,593 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 07:25:55,663 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 07:25:55,663 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 07:25:55,663 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 07:25:55,676 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:25:55,676 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:25:55,712 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:25:55,733 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 07:25:55,733 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 07:25:55,822 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 07:25:55,822 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 07:25:56,336 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 07:25:56,336 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 07:25:56,336 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:25:56,379 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:25:56,408 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 07:25:56,421 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 07:25:56,422 - __main__ - INFO - \u2713 Cohort analysis completed
+2025-07-31 07:25:56,422 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:25:56,422 - __main__ - INFO - STEP 7: Recommendation System
+2025-07-31 07:25:56,422 - __main__ - INFO - ======================================================================
+2025-07-31 07:25:56,422 - src.recommendation_engine - INFO - Recommendation Engine initialized
+2025-07-31 07:25:56,422 - src.recommendation_engine - INFO - Loading data for recommendation engine...
+2025-07-31 07:25:57,127 - src.recommendation_engine - INFO - Data loaded successfully for recommendations
+2025-07-31 07:25:57,127 - src.recommendation_engine - INFO - Creating user-item matrix...
+2025-07-31 07:25:57,270 - src.recommendation_engine - INFO - Total users: 95420, Total products: 32951
+2025-07-31 07:25:57,270 - src.recommendation_engine - INFO - Dataset too large, sampling users and products...
+2025-07-31 07:25:57,380 - src.recommendation_engine - INFO - Sampled to 13425 users and 4349 products
+2025-07-31 07:25:57,408 - src.recommendation_engine - INFO - Created sparse user-item matrix: (13425, 4349)
+2025-07-31 07:25:57,408 - src.recommendation_engine - INFO - Matrix density: 0.0269%
+2025-07-31 07:25:57,525 - src.recommendation_engine - INFO - Building collaborative filtering models...
+2025-07-31 07:25:57,525 - src.recommendation_engine - INFO - Computing item similarity matrix...
+2025-07-31 07:25:57,539 - src.recommendation_engine - INFO - Computing user similarity matrix...
+2025-07-31 07:25:57,703 - src.recommendation_engine - INFO - Training SVD model...
+2025-07-31 07:26:02,939 - src.recommendation_engine - INFO - Collaborative filtering models built successfully
+2025-07-31 07:26:02,941 - src.recommendation_engine - INFO - Evaluating recommendation system...
+2025-07-31 07:26:03,036 - src.recommendation_engine - INFO - Recommendation engine pipeline completed successfully
+2025-07-31 07:26:03,036 - __main__ - INFO - \u2713 Recommendation engine built
+2025-07-31 07:26:03,310 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:26:03,311 - __main__ - INFO - STEP 8: NLP Analysis (Optional)
+2025-07-31 07:26:03,311 - __main__ - INFO - ======================================================================
+2025-07-31 07:26:03,311 - src.nlp_analysis - INFO - Customer Review Analyzer initialized
+2025-07-31 07:26:03,312 - src.nlp_analysis - INFO - Loading SpaCy model...
+2025-07-31 07:26:03,815 - src.nlp_analysis - INFO - SpaCy model loaded successfully
+2025-07-31 07:26:03,815 - src.nlp_analysis - INFO - Loading customer reviews...
+2025-07-31 07:26:04,120 - src.nlp_analysis - INFO - Loaded 40977 reviews with comments
+2025-07-31 07:26:04,120 - src.nlp_analysis - INFO - Analyzing review sentiment...
+2025-07-31 07:26:08,411 - src.nlp_analysis - INFO - Sentiment analysis completed
+2025-07-31 07:26:08,411 - src.nlp_analysis - INFO - Extracting topics from reviews...
+2025-07-31 07:26:31,426 - src.nlp_analysis - INFO - Extracted 10 topics
+2025-07-31 07:26:31,442 - src.nlp_analysis - INFO - Analyzing keywords by rating...
+2025-07-31 07:27:09,443 - src.nlp_analysis - INFO - Keyword analysis completed
+2025-07-31 07:27:09,443 - src.nlp_analysis - INFO - Creating review-based features...
+2025-07-31 07:27:13,172 - src.nlp_analysis - INFO - Created review features for 40836 customers
+2025-07-31 07:27:13,190 - src.nlp_analysis - INFO - NLP analysis pipeline completed successfully
+2025-07-31 07:27:13,190 - __main__ - INFO - \u2713 NLP analysis completed
+2025-07-31 07:27:13,224 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:27:13,226 - __main__ - INFO - FINAL REPORT
+2025-07-31 07:27:13,226 - __main__ - INFO - ======================================================================
+2025-07-31 07:27:13,234 - __main__ - ERROR - Error generating report: 'charmap' codec can't encode character '\u2713' in position 183: character maps to <undefined>
+2025-07-31 07:27:13,234 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:27:13,235 - __main__ - INFO - \u2705 COMPLETE PIPELINE FINISHED IN 3.6 MINUTES
+2025-07-31 07:27:13,235 - __main__ - INFO - ======================================================================
+2025-07-31 07:27:13,235 - __main__ - INFO - 
+\U0001f389 SUCCESS! Full analytics platform ready!
+2025-07-31 07:27:13,236 - __main__ - INFO - 
+\U0001f4ca Check artifacts/ folder for all outputs:
+2025-07-31 07:27:13,237 - __main__ - INFO -    - models_final/ : Trained models
+2025-07-31 07:27:13,237 - __main__ - INFO -    - business_metrics/ : CLV, segments, insights
+2025-07-31 07:27:13,238 - __main__ - INFO -    - cohort_analysis/ : Retention matrices
+2025-07-31 07:27:13,239 - __main__ - INFO -    - eda/ : Data visualizations
+2025-07-31 07:27:13,239 - __main__ - INFO -    - recommendations/ : Product suggestions
+2025-07-31 07:27:13,239 - __main__ - INFO -    - nlp/ : Review analysis
+2025-07-31 07:38:56,782 - __main__ - INFO - ======================================================================
+2025-07-31 07:38:56,782 - __main__ - INFO - ENHANCED MODEL TRAINING - TARGET 80% ACCURACY
+2025-07-31 07:38:56,782 - __main__ - INFO - ======================================================================
+2025-07-31 07:38:56,782 - src.model_training_enhanced - INFO - Loading processed data...
+2025-07-31 07:38:56,808 - src.model_training_enhanced - INFO - Loaded data - Train: (74686, 21), Test: (18672, 21)
+2025-07-31 07:38:56,808 - src.model_training_enhanced - INFO - Train churn rate: 0.522
+2025-07-31 07:38:56,808 - src.model_training_enhanced - INFO - Test churn rate: 0.522
+2025-07-31 07:38:56,808 - src.model_training_enhanced - INFO - Starting enhanced model training for 80% accuracy...
+2025-07-31 07:38:56,808 - src.model_training_enhanced - INFO - Engineering advanced features...
+2025-07-31 07:38:58,224 - src.model_training_enhanced - INFO - Created 90 interaction features
+2025-07-31 07:38:58,224 - src.model_training_enhanced - INFO - Enhanced train shape: (74686, 111)
+2025-07-31 07:38:58,224 - src.model_training_enhanced - INFO - Selecting best features...
+2025-07-31 07:38:58,444 - src.model_training_enhanced - INFO - Final feature set: 50 features
+2025-07-31 07:38:58,479 - src.model_training_enhanced - INFO - LightGBM not available, skipping...
+2025-07-31 07:38:58,479 - src.model_training_enhanced - INFO - Creating ensemble models...
+2025-07-31 07:38:59,055 - src.model_training_enhanced - INFO - Logistic_Regression accuracy: 0.491
+2025-07-31 07:39:04,980 - src.model_training_enhanced - INFO - Random_Forest accuracy: 0.730
+2025-07-31 07:39:33,214 - src.model_training_enhanced - INFO - Gradient_Boosting accuracy: 0.763
+2025-07-31 07:39:34,180 - src.model_training_enhanced - INFO - XGBoost accuracy: 0.781
+2025-07-31 07:40:10,670 - src.model_training_enhanced - INFO - Neural_Network accuracy: 0.643
+2025-07-31 07:40:10,670 - src.model_training_enhanced - INFO - Top models for ensemble: ['XGBoost', 'Gradient_Boosting', 'Random_Forest']
+2025-07-31 07:40:10,670 - src.model_training_enhanced - INFO - 
+Training Logistic_Regression...
+2025-07-31 07:40:13,921 - src.model_training_enhanced - INFO - Logistic_Regression Results:
+2025-07-31 07:40:13,921 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.487 (±0.002)
+2025-07-31 07:40:13,921 - src.model_training_enhanced - INFO -   Test Accuracy: 0.491
+2025-07-31 07:40:13,921 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.502
+2025-07-31 07:40:13,921 - src.model_training_enhanced - INFO - 
+Training Random_Forest...
+2025-07-31 07:40:49,854 - src.model_training_enhanced - INFO - Random_Forest Results:
+2025-07-31 07:40:49,854 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.727 (±0.003)
+2025-07-31 07:40:49,854 - src.model_training_enhanced - INFO -   Test Accuracy: 0.730
+2025-07-31 07:40:49,854 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.810
+2025-07-31 07:40:49,854 - src.model_training_enhanced - INFO - 
+Training Gradient_Boosting...
+2025-07-31 07:41:52,654 - src.model_training_enhanced - INFO - Gradient_Boosting Results:
+2025-07-31 07:41:52,654 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.757 (±0.004)
+2025-07-31 07:41:52,654 - src.model_training_enhanced - INFO -   Test Accuracy: 0.763
+2025-07-31 07:41:52,654 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.840
+2025-07-31 07:41:52,654 - src.model_training_enhanced - INFO - 
+Training XGBoost...
+2025-07-31 07:41:58,565 - src.model_training_enhanced - INFO - XGBoost Results:
+2025-07-31 07:41:58,565 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.776 (±0.005)
+2025-07-31 07:41:58,565 - src.model_training_enhanced - INFO -   Test Accuracy: 0.781
+2025-07-31 07:41:58,565 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.858
+2025-07-31 07:41:58,565 - src.model_training_enhanced - INFO - 
+Training Neural_Network...
+2025-07-31 07:42:58,398 - src.model_training_enhanced - INFO - Neural_Network Results:
+2025-07-31 07:42:58,398 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.633 (±0.007)
+2025-07-31 07:42:58,398 - src.model_training_enhanced - INFO -   Test Accuracy: 0.643
+2025-07-31 07:42:58,398 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.703
+2025-07-31 07:42:58,398 - src.model_training_enhanced - INFO - 
+Training Ensemble_Soft...
+2025-07-31 07:44:32,474 - src.model_training_enhanced - INFO - Ensemble_Soft Results:
+2025-07-31 07:44:32,474 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.763 (±0.004)
+2025-07-31 07:44:32,474 - src.model_training_enhanced - INFO -   Test Accuracy: 0.768
+2025-07-31 07:44:32,474 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.849
+2025-07-31 07:44:32,474 - src.model_training_enhanced - INFO - 
+Training Ensemble_Hard...
+2025-07-31 07:45:30,901 - src.model_training_enhanced - ERROR - Error training Ensemble_Hard: VotingClassifier has none of the following attributes: decision_function, predict_proba.
+2025-07-31 07:45:30,946 - src.model_training_enhanced - INFO - 
+============================================================
+2025-07-31 07:45:30,946 - src.model_training_enhanced - INFO - BEST MODEL: XGBoost
+2025-07-31 07:45:30,946 - src.model_training_enhanced - INFO - TEST ACCURACY: 78.1%
+2025-07-31 07:45:30,946 - src.model_training_enhanced - INFO - ============================================================
+2025-07-31 07:45:30,946 - src.model_training_enhanced - INFO - Current best: 78.1%. Consider further tuning.
+2025-07-31 07:45:30,946 - __main__ - INFO - 
+Training completed! Check artifacts/models_final/ for enhanced models.
+2025-07-31 07:50:16,492 - __main__ - INFO - Final Complete Pipeline initialized
+2025-07-31 07:50:16,492 - __main__ - INFO - ======================================================================
+2025-07-31 07:50:16,492 - __main__ - INFO - STARTING FINAL COMPLETE PIPELINE
+2025-07-31 07:50:16,492 - __main__ - INFO - ======================================================================
+2025-07-31 07:50:16,492 - __main__ - INFO - This includes ALL features from previous pipelines
+2025-07-31 07:50:16,492 - __main__ - INFO - but with proper implementation (no leakage, no overfitting)
+2025-07-31 07:50:16,492 - __main__ - INFO - ======================================================================
+2025-07-31 07:50:16,492 - __main__ - INFO - ======================================================================
+2025-07-31 07:50:16,492 - __main__ - INFO - STEP 1: Basic Data Processing
+2025-07-31 07:50:16,492 - __main__ - INFO - ======================================================================
+2025-07-31 07:50:16,492 - src.data_processing_balanced - INFO - Loading datasets...
+2025-07-31 07:50:17,294 - src.data_processing_balanced - INFO - Data loaded successfully
+2025-07-31 07:50:17,294 - src.data_processing_balanced - INFO - Creating customer features...
+2025-07-31 07:50:17,573 - src.data_processing_balanced - INFO - Using reference date: 2018-08-01 00:00:00
+2025-07-31 07:50:17,831 - src.data_processing_balanced - INFO - Created features for 93358 customers
+2025-07-31 07:50:17,831 - src.data_processing_balanced - INFO - Churn rate: 0.522
+2025-07-31 07:50:17,831 - src.data_processing_balanced - INFO - Preparing ML data...
+2025-07-31 07:50:18,939 - src.data_processing_balanced - INFO - ML data prepared successfully
+2025-07-31 07:50:18,939 - src.data_processing_balanced - INFO - Train: (74686, 21), Test: (18672, 21)
+2025-07-31 07:50:18,939 - src.data_processing_balanced - INFO - Train churn: 0.522, Test churn: 0.522
+2025-07-31 07:50:18,939 - src.data_processing_balanced - INFO - Balanced data processing completed successfully
+2025-07-31 07:50:18,939 - __main__ - INFO - \u2713 Basic data processing completed
+2025-07-31 07:50:18,980 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:50:18,980 - __main__ - INFO - STEP 2: Advanced Feature Engineering
+2025-07-31 07:50:18,980 - __main__ - INFO - ======================================================================
+2025-07-31 07:50:19,664 - src.advanced_feature_engineering - INFO - Advanced Feature Engineering initialized
+2025-07-31 07:50:19,664 - __main__ - INFO - Creating advanced features...
+2025-07-31 07:50:20,556 - src.advanced_feature_engineering - INFO - Creating product category features...
+2025-07-31 07:50:28,128 - src.advanced_feature_engineering - INFO - Created category features for 94088 customers
+2025-07-31 07:50:28,162 - src.advanced_feature_engineering - INFO - Creating temporal features...
+2025-07-31 07:51:14,012 - src.advanced_feature_engineering - INFO - Created temporal features for 95420 customers
+2025-07-31 07:51:14,028 - src.advanced_feature_engineering - INFO - Creating geographic features...
+2025-07-31 07:51:14,554 - src.advanced_feature_engineering - ERROR - Error creating geographic features: 'customer_state'
+2025-07-31 07:51:14,554 - __main__ - WARNING - Some advanced features failed: Failed to create geographic features | Error: 'customer_state' | File: C:\Users\vedan\Desktop\ecommerece\src\advanced_feature_engineering.py | Line: 271
+2025-07-31 07:51:15,386 - __main__ - INFO - \u2713 Enhanced features created: (93358, 27)
+2025-07-31 07:51:15,432 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:51:15,432 - __main__ - INFO - STEP 3: Exploratory Data Analysis
+2025-07-31 07:51:15,432 - __main__ - INFO - ======================================================================
+2025-07-31 07:51:15,432 - src.eda - INFO - Customer Analytics EDA initialized
+2025-07-31 07:51:15,688 - src.eda - INFO - Loaded customer features: (93358, 27)
+2025-07-31 07:51:15,688 - src.eda - INFO - Generating basic statistics...
+2025-07-31 07:51:15,688 - src.eda - ERROR - Error generating statistics: 'monetary_value'
+2025-07-31 07:51:15,688 - __main__ - WARNING - EDA failed: Failed to generate statistics | Error: 'monetary_value' | File: C:\Users\vedan\Desktop\ecommerece\src\eda.py | Line: 39
+2025-07-31 07:51:15,704 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:51:15,704 - __main__ - INFO - STEP 4: Model Training
+2025-07-31 07:51:15,704 - __main__ - INFO - ======================================================================
+2025-07-31 07:51:15,704 - __main__ - INFO - Running basic model training...
+2025-07-31 07:51:15,704 - src.model_training_final - INFO - Loading processed data...
+2025-07-31 07:51:15,747 - src.model_training_final - INFO - Loaded data - Train: (74686, 21), Test: (18672, 21)
+2025-07-31 07:51:15,747 - src.model_training_final - INFO - Train churn rate: 0.522
+2025-07-31 07:51:15,747 - src.model_training_final - INFO - Test churn rate: 0.522
+2025-07-31 07:51:15,747 - src.model_training_final - INFO - Starting model training with moderate regularization for ~85% accuracy...
+2025-07-31 07:51:15,747 - src.model_training_final - INFO - 
+Training Logistic_Regression_L2...
+2025-07-31 07:51:20,507 - src.model_training_final - INFO - Logistic_Regression_L2 Results:
+2025-07-31 07:51:20,507 - src.model_training_final - INFO -   CV Val Accuracy: 0.541 (±0.003)
+2025-07-31 07:51:20,507 - src.model_training_final - INFO -   CV Overfit Gap: 0.000
+2025-07-31 07:51:20,507 - src.model_training_final - INFO -   Test Accuracy: 0.539
+2025-07-31 07:51:20,507 - src.model_training_final - INFO -   Test ROC-AUC: 0.555
+2025-07-31 07:51:20,507 - src.model_training_final - INFO - 
+Training Logistic_Regression_L1...
+2025-07-31 07:51:23,450 - src.model_training_final - INFO - Logistic_Regression_L1 Results:
+2025-07-31 07:51:23,450 - src.model_training_final - INFO -   CV Val Accuracy: 0.540 (±0.005)
+2025-07-31 07:51:23,450 - src.model_training_final - INFO -   CV Overfit Gap: 0.002
+2025-07-31 07:51:23,450 - src.model_training_final - INFO -   Test Accuracy: 0.541
+2025-07-31 07:51:23,450 - src.model_training_final - INFO -   Test ROC-AUC: 0.557
+2025-07-31 07:51:23,450 - src.model_training_final - INFO - 
+Training Decision_Tree...
+2025-07-31 07:51:25,205 - src.model_training_final - INFO - Decision_Tree Results:
+2025-07-31 07:51:25,205 - src.model_training_final - INFO -   CV Val Accuracy: 0.654 (±0.005)
+2025-07-31 07:51:25,205 - src.model_training_final - INFO -   CV Overfit Gap: 0.001
+2025-07-31 07:51:25,205 - src.model_training_final - INFO -   Test Accuracy: 0.656
+2025-07-31 07:51:25,205 - src.model_training_final - INFO -   Test ROC-AUC: 0.700
+2025-07-31 07:51:25,205 - src.model_training_final - INFO - 
+Training Random_Forest...
+2025-07-31 07:51:30,924 - src.model_training_final - INFO - Random_Forest Results:
+2025-07-31 07:51:30,924 - src.model_training_final - INFO -   CV Val Accuracy: 0.659 (±0.009)
+2025-07-31 07:51:30,924 - src.model_training_final - INFO -   CV Overfit Gap: 0.002
+2025-07-31 07:51:30,924 - src.model_training_final - INFO -   Test Accuracy: 0.668
+2025-07-31 07:51:30,924 - src.model_training_final - INFO -   Test ROC-AUC: 0.726
+2025-07-31 07:51:30,924 - src.model_training_final - INFO - 
+Training Gradient_Boosting...
+2025-07-31 07:51:46,821 - src.model_training_final - INFO - Gradient_Boosting Results:
+2025-07-31 07:51:46,821 - src.model_training_final - INFO -   CV Val Accuracy: 0.729 (±0.005)
+2025-07-31 07:51:46,821 - src.model_training_final - INFO -   CV Overfit Gap: 0.008
+2025-07-31 07:51:46,821 - src.model_training_final - INFO -   Test Accuracy: 0.737
+2025-07-31 07:51:46,821 - src.model_training_final - INFO -   Test ROC-AUC: 0.812
+2025-07-31 07:51:46,821 - src.model_training_final - INFO - 
+Training XGBoost...
+2025-07-31 07:51:48,438 - src.model_training_final - INFO - XGBoost Results:
+2025-07-31 07:51:48,441 - src.model_training_final - INFO -   CV Val Accuracy: 0.722 (±0.006)
+2025-07-31 07:51:48,441 - src.model_training_final - INFO -   CV Overfit Gap: 0.005
+2025-07-31 07:51:48,441 - src.model_training_final - INFO -   Test Accuracy: 0.725
+2025-07-31 07:51:48,441 - src.model_training_final - INFO -   Test ROC-AUC: 0.802
+2025-07-31 07:51:48,441 - src.model_training_final - INFO - 
+Training SVM...
+2025-07-31 07:51:48,441 - src.model_training_final - INFO - Using subset of data for SVM to speed up training...
+2025-07-31 07:52:34,355 - src.model_training_final - INFO - SVM Results:
+2025-07-31 07:52:34,355 - src.model_training_final - INFO -   CV Val Accuracy: 0.543 (±0.008)
+2025-07-31 07:52:34,355 - src.model_training_final - INFO -   CV Overfit Gap: 0.005
+2025-07-31 07:52:34,355 - src.model_training_final - INFO -   Test Accuracy: 0.538
+2025-07-31 07:52:34,355 - src.model_training_final - INFO -   Test ROC-AUC: 0.543
+2025-07-31 07:52:34,355 - src.model_training_final - INFO - Creating result visualizations...
+2025-07-31 07:52:35,511 - src.model_training_final - INFO - 
+Best model: Gradient_Boosting
+2025-07-31 07:52:35,513 - src.model_training_final - INFO - Test ROC-AUC: 0.812
+2025-07-31 07:52:35,515 - src.model_training_final - INFO - Model training completed successfully
+2025-07-31 07:52:35,515 - __main__ - INFO - 
+Running enhanced model training for 80% accuracy...
+2025-07-31 07:52:35,515 - src.model_training_enhanced - INFO - Loading processed data...
+2025-07-31 07:52:35,527 - src.model_training_enhanced - INFO - Loaded data - Train: (74686, 21), Test: (18672, 21)
+2025-07-31 07:52:35,527 - src.model_training_enhanced - INFO - Train churn rate: 0.522
+2025-07-31 07:52:35,527 - src.model_training_enhanced - INFO - Test churn rate: 0.522
+2025-07-31 07:52:35,527 - src.model_training_enhanced - INFO - Starting enhanced model training for 80% accuracy...
+2025-07-31 07:52:35,527 - src.model_training_enhanced - INFO - Engineering advanced features...
+2025-07-31 07:52:36,980 - src.model_training_enhanced - INFO - Created 90 interaction features
+2025-07-31 07:52:36,980 - src.model_training_enhanced - INFO - Enhanced train shape: (74686, 111)
+2025-07-31 07:52:36,980 - src.model_training_enhanced - INFO - Selecting best features...
+2025-07-31 07:52:37,187 - src.model_training_enhanced - INFO - Final feature set: 50 features
+2025-07-31 07:52:37,207 - src.model_training_enhanced - INFO - LightGBM not available, skipping...
+2025-07-31 07:52:37,207 - src.model_training_enhanced - INFO - Creating ensemble models...
+2025-07-31 07:52:37,721 - src.model_training_enhanced - INFO - Logistic_Regression accuracy: 0.491
+2025-07-31 07:52:44,045 - src.model_training_enhanced - INFO - Random_Forest accuracy: 0.730
+2025-07-31 07:53:13,328 - src.model_training_enhanced - INFO - Gradient_Boosting accuracy: 0.763
+2025-07-31 07:53:14,321 - src.model_training_enhanced - INFO - XGBoost accuracy: 0.781
+2025-07-31 07:53:51,320 - src.model_training_enhanced - INFO - Neural_Network accuracy: 0.643
+2025-07-31 07:53:51,320 - src.model_training_enhanced - INFO - Top models for ensemble: ['XGBoost', 'Gradient_Boosting', 'Random_Forest']
+2025-07-31 07:53:51,320 - src.model_training_enhanced - INFO - 
+Training Logistic_Regression...
+2025-07-31 07:53:52,417 - src.model_training_enhanced - INFO - Logistic_Regression Results:
+2025-07-31 07:53:52,417 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.487 (±0.002)
+2025-07-31 07:53:52,417 - src.model_training_enhanced - INFO -   Test Accuracy: 0.491
+2025-07-31 07:53:52,417 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.502
+2025-07-31 07:53:52,417 - src.model_training_enhanced - INFO - 
+Training Random_Forest...
+2025-07-31 07:54:26,686 - src.model_training_enhanced - INFO - Random_Forest Results:
+2025-07-31 07:54:26,686 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.727 (±0.003)
+2025-07-31 07:54:26,686 - src.model_training_enhanced - INFO -   Test Accuracy: 0.730
+2025-07-31 07:54:26,686 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.810
+2025-07-31 07:54:26,686 - src.model_training_enhanced - INFO - 
+Training Gradient_Boosting...
+2025-07-31 07:55:27,430 - src.model_training_enhanced - INFO - Gradient_Boosting Results:
+2025-07-31 07:55:27,430 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.757 (±0.004)
+2025-07-31 07:55:27,430 - src.model_training_enhanced - INFO -   Test Accuracy: 0.763
+2025-07-31 07:55:27,430 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.840
+2025-07-31 07:55:27,430 - src.model_training_enhanced - INFO - 
+Training XGBoost...
+2025-07-31 07:55:33,303 - src.model_training_enhanced - INFO - XGBoost Results:
+2025-07-31 07:55:33,303 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.776 (±0.005)
+2025-07-31 07:55:33,303 - src.model_training_enhanced - INFO -   Test Accuracy: 0.781
+2025-07-31 07:55:33,303 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.858
+2025-07-31 07:55:33,303 - src.model_training_enhanced - INFO - 
+Training Neural_Network...
+2025-07-31 07:56:33,242 - src.model_training_enhanced - INFO - Neural_Network Results:
+2025-07-31 07:56:33,242 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.633 (±0.007)
+2025-07-31 07:56:33,242 - src.model_training_enhanced - INFO -   Test Accuracy: 0.643
+2025-07-31 07:56:33,242 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.703
+2025-07-31 07:56:33,242 - src.model_training_enhanced - INFO - 
+Training Ensemble_Soft...
+2025-07-31 07:58:05,886 - src.model_training_enhanced - INFO - Ensemble_Soft Results:
+2025-07-31 07:58:05,886 - src.model_training_enhanced - INFO -   CV Val Accuracy: 0.763 (±0.004)
+2025-07-31 07:58:05,886 - src.model_training_enhanced - INFO -   Test Accuracy: 0.768
+2025-07-31 07:58:05,886 - src.model_training_enhanced - INFO -   Test ROC-AUC: 0.849
+2025-07-31 07:58:05,886 - src.model_training_enhanced - INFO - 
+Training Ensemble_Hard...
+2025-07-31 07:59:04,405 - src.model_training_enhanced - ERROR - Error training Ensemble_Hard: VotingClassifier has none of the following attributes: decision_function, predict_proba.
+2025-07-31 07:59:04,428 - src.model_training_enhanced - INFO - 
+============================================================
+2025-07-31 07:59:04,428 - src.model_training_enhanced - INFO - BEST MODEL: XGBoost
+2025-07-31 07:59:04,428 - src.model_training_enhanced - INFO - TEST ACCURACY: 78.1%
+2025-07-31 07:59:04,428 - src.model_training_enhanced - INFO - ============================================================
+2025-07-31 07:59:04,428 - src.model_training_enhanced - INFO - Current best: 78.1%. Consider further tuning.
+2025-07-31 07:59:04,428 - __main__ - INFO - \u2713 Models trained successfully
+2025-07-31 07:59:04,428 - __main__ - INFO - \u2713 Enhanced models achieved up to 78.1% accuracy
+2025-07-31 07:59:04,444 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:59:04,445 - __main__ - INFO - STEP 5: Business Metrics
+2025-07-31 07:59:04,445 - __main__ - INFO - ======================================================================
+2025-07-31 07:59:04,445 - src.business_metrics - INFO - Business Metrics Calculator initialized
+2025-07-31 07:59:04,784 - src.business_metrics - INFO - Loaded customer data: (93358, 27)
+2025-07-31 07:59:04,784 - src.business_metrics - WARNING - Column 'monetary_value' not found, creating with default value 0
+2025-07-31 07:59:04,784 - src.business_metrics - WARNING - Column 'frequency' not found, creating with default value 1
+2025-07-31 07:59:04,784 - src.business_metrics - WARNING - Column 'recency_days' not found, creating with default value 365
+2025-07-31 07:59:04,784 - src.business_metrics - INFO - Calculating Customer Lifetime Value...
+2025-07-31 07:59:04,811 - src.business_metrics - INFO - CLV calculation completed
+2025-07-31 07:59:04,811 - src.business_metrics - INFO - Calculating customer profitability...
+2025-07-31 07:59:04,828 - src.business_metrics - INFO - Profitability calculation completed
+2025-07-31 07:59:04,828 - src.business_metrics - INFO - Calculating retention metrics...
+2025-07-31 07:59:04,921 - src.business_metrics - INFO - Retention metrics calculation completed
+2025-07-31 07:59:04,922 - src.business_metrics - INFO - Calculating marketing metrics...
+2025-07-31 07:59:05,932 - src.business_metrics - ERROR - Error calculating marketing metrics: 'bool' object has no attribute 'astype'
+2025-07-31 07:59:05,932 - __main__ - WARNING - Business metrics failed: Failed to calculate marketing metrics | Error: 'bool' object has no attribute 'astype' | File: C:\Users\vedan\Desktop\ecommerece\src\business_metrics.py | Line: 341
+2025-07-31 07:59:05,932 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:59:05,932 - __main__ - INFO - STEP 6: Cohort Analysis
+2025-07-31 07:59:05,932 - __main__ - INFO - ======================================================================
+2025-07-31 07:59:05,932 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 07:59:05,939 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 07:59:05,939 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 07:59:07,157 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 07:59:07,177 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:59:07,232 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:59:07,232 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 07:59:07,247 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:59:07,247 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 07:59:07,320 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 07:59:07,320 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 07:59:07,320 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 07:59:07,332 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:59:07,332 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:59:07,379 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:59:07,400 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 07:59:07,400 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 07:59:07,510 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 07:59:07,510 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 07:59:08,076 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 07:59:08,076 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 07:59:08,076 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 07:59:08,143 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 07:59:08,193 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 07:59:08,193 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 07:59:08,193 - __main__ - INFO - \u2713 Cohort analysis completed
+2025-07-31 07:59:08,222 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:59:08,222 - __main__ - INFO - STEP 7: Recommendation System
+2025-07-31 07:59:08,222 - __main__ - INFO - ======================================================================
+2025-07-31 07:59:08,223 - src.recommendation_engine - INFO - Recommendation Engine initialized
+2025-07-31 07:59:08,223 - src.recommendation_engine - INFO - Loading data for recommendation engine...
+2025-07-31 07:59:08,955 - src.recommendation_engine - INFO - Data loaded successfully for recommendations
+2025-07-31 07:59:08,955 - src.recommendation_engine - INFO - Creating user-item matrix...
+2025-07-31 07:59:09,093 - src.recommendation_engine - INFO - Total users: 95420, Total products: 32951
+2025-07-31 07:59:09,093 - src.recommendation_engine - INFO - Dataset too large, sampling users and products...
+2025-07-31 07:59:09,198 - src.recommendation_engine - INFO - Sampled to 13425 users and 4349 products
+2025-07-31 07:59:09,227 - src.recommendation_engine - INFO - Created sparse user-item matrix: (13425, 4349)
+2025-07-31 07:59:09,227 - src.recommendation_engine - INFO - Matrix density: 0.0269%
+2025-07-31 07:59:09,380 - src.recommendation_engine - INFO - Building collaborative filtering models...
+2025-07-31 07:59:09,380 - src.recommendation_engine - INFO - Computing item similarity matrix...
+2025-07-31 07:59:09,401 - src.recommendation_engine - INFO - Computing user similarity matrix...
+2025-07-31 07:59:09,524 - src.recommendation_engine - INFO - Training SVD model...
+2025-07-31 07:59:26,075 - src.recommendation_engine - INFO - Collaborative filtering models built successfully
+2025-07-31 07:59:26,107 - src.recommendation_engine - INFO - Evaluating recommendation system...
+2025-07-31 07:59:26,154 - src.recommendation_engine - INFO - Recommendation engine pipeline completed successfully
+2025-07-31 07:59:26,154 - __main__ - INFO - \u2713 Recommendation engine built
+2025-07-31 07:59:26,311 - __main__ - INFO - 
+======================================================================
+2025-07-31 07:59:26,312 - __main__ - INFO - STEP 8: NLP Analysis (Optional)
+2025-07-31 07:59:26,312 - __main__ - INFO - ======================================================================
+2025-07-31 07:59:26,327 - src.nlp_analysis - INFO - Customer Review Analyzer initialized
+2025-07-31 07:59:26,374 - src.nlp_analysis - INFO - Loading SpaCy model...
+2025-07-31 07:59:29,597 - src.nlp_analysis - INFO - SpaCy model loaded successfully
+2025-07-31 07:59:29,597 - src.nlp_analysis - INFO - Loading customer reviews...
+2025-07-31 07:59:30,003 - src.nlp_analysis - INFO - Loaded 40977 reviews with comments
+2025-07-31 07:59:30,004 - src.nlp_analysis - INFO - Analyzing review sentiment...
+2025-07-31 07:59:35,324 - src.nlp_analysis - INFO - Sentiment analysis completed
+2025-07-31 07:59:35,326 - src.nlp_analysis - INFO - Extracting topics from reviews...
+2025-07-31 07:59:59,209 - src.nlp_analysis - INFO - Extracted 10 topics
+2025-07-31 07:59:59,225 - src.nlp_analysis - INFO - Analyzing keywords by rating...
+2025-07-31 08:00:36,536 - src.nlp_analysis - INFO - Keyword analysis completed
+2025-07-31 08:00:36,551 - src.nlp_analysis - INFO - Creating review-based features...
+2025-07-31 08:00:40,330 - src.nlp_analysis - INFO - Created review features for 40836 customers
+2025-07-31 08:00:40,356 - src.nlp_analysis - INFO - NLP analysis pipeline completed successfully
+2025-07-31 08:00:40,356 - __main__ - INFO - \u2713 NLP analysis completed
+2025-07-31 08:00:40,368 - __main__ - INFO - 
+======================================================================
+2025-07-31 08:00:40,368 - __main__ - INFO - FINAL REPORT
+2025-07-31 08:00:40,368 - __main__ - INFO - ======================================================================
+2025-07-31 08:00:40,368 - __main__ - ERROR - Error generating report: 'charmap' codec can't encode character '\u2713' in position 183: character maps to <undefined>
+2025-07-31 08:00:40,368 - __main__ - INFO - 
+======================================================================
+2025-07-31 08:00:40,381 - __main__ - INFO - \u2705 COMPLETE PIPELINE FINISHED IN 10.4 MINUTES
+2025-07-31 08:00:40,381 - __main__ - INFO - ======================================================================
+2025-07-31 08:00:40,382 - __main__ - INFO - 
+\U0001f389 SUCCESS! Full analytics platform ready!
+2025-07-31 08:00:40,382 - __main__ - INFO - 
+\U0001f4ca Check artifacts/ folder for all outputs:
+2025-07-31 08:00:40,383 - __main__ - INFO -    - models_final/ : Trained models
+2025-07-31 08:00:40,383 - __main__ - INFO -    - business_metrics/ : CLV, segments, insights
+2025-07-31 08:00:40,383 - __main__ - INFO -    - cohort_analysis/ : Retention matrices
+2025-07-31 08:00:40,383 - __main__ - INFO -    - eda/ : Data visualizations
+2025-07-31 08:00:40,383 - __main__ - INFO -    - recommendations/ : Product suggestions
+2025-07-31 08:00:40,383 - __main__ - INFO -    - nlp/ : Review analysis
+2025-07-31 08:14:44,672 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:14:49,003 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:14:49,008 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,025 - src.ab_testing - INFO - Sample size calculated: 8144 per variant
+2025-07-31 08:14:49,025 - src.ab_testing - INFO - Calculating test duration...
+2025-07-31 08:14:49,025 - src.ab_testing - INFO - Test duration: 5 days
+2025-07-31 08:14:49,025 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,039 - src.ab_testing - INFO - Sample size calculated: 122108 per variant
+2025-07-31 08:14:49,039 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,044 - src.ab_testing - INFO - Sample size calculated: 56832 per variant
+2025-07-31 08:14:49,044 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,056 - src.ab_testing - INFO - Sample size calculated: 32891 per variant
+2025-07-31 08:14:49,057 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,064 - src.ab_testing - INFO - Sample size calculated: 21501 per variant
+2025-07-31 08:14:49,065 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,075 - src.ab_testing - INFO - Sample size calculated: 15194 per variant
+2025-07-31 08:14:49,076 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,089 - src.ab_testing - INFO - Sample size calculated: 11335 per variant
+2025-07-31 08:14:49,089 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,098 - src.ab_testing - INFO - Sample size calculated: 8798 per variant
+2025-07-31 08:14:49,100 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,106 - src.ab_testing - INFO - Sample size calculated: 7041 per variant
+2025-07-31 08:14:49,107 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,112 - src.ab_testing - INFO - Sample size calculated: 5772 per variant
+2025-07-31 08:14:49,113 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,117 - src.ab_testing - INFO - Sample size calculated: 4825 per variant
+2025-07-31 08:14:49,118 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,124 - src.ab_testing - INFO - Sample size calculated: 4099 per variant
+2025-07-31 08:14:49,124 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,130 - src.ab_testing - INFO - Sample size calculated: 3530 per variant
+2025-07-31 08:14:49,131 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,137 - src.ab_testing - INFO - Sample size calculated: 3075 per variant
+2025-07-31 08:14:49,139 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,143 - src.ab_testing - INFO - Sample size calculated: 2706 per variant
+2025-07-31 08:14:49,143 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,143 - src.ab_testing - INFO - Sample size calculated: 2401 per variant
+2025-07-31 08:14:49,143 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,155 - src.ab_testing - INFO - Sample size calculated: 2147 per variant
+2025-07-31 08:14:49,155 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,161 - src.ab_testing - INFO - Sample size calculated: 1933 per variant
+2025-07-31 08:14:49,161 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,169 - src.ab_testing - INFO - Sample size calculated: 1751 per variant
+2025-07-31 08:14:49,170 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,175 - src.ab_testing - INFO - Sample size calculated: 1594 per variant
+2025-07-31 08:14:49,176 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:14:49,182 - src.ab_testing - INFO - Sample size calculated: 1459 per variant
+2025-07-31 08:14:54,103 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:14:54,127 - src.ab_testing - INFO - Analyzing A/B test results for conversion...
+2025-07-31 08:14:54,133 - src.ab_testing - ERROR - Error analyzing test results: TTestPower.solve_power() got an unexpected keyword argument 'nobs1'
+2025-07-31 08:19:52,241 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:19:54,566 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:19:54,583 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,600 - src.ab_testing - INFO - Sample size calculated: 8144 per variant
+2025-07-31 08:19:54,602 - src.ab_testing - INFO - Calculating test duration...
+2025-07-31 08:19:54,602 - src.ab_testing - INFO - Test duration: 5 days
+2025-07-31 08:19:54,602 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,602 - src.ab_testing - INFO - Sample size calculated: 122108 per variant
+2025-07-31 08:19:54,602 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,620 - src.ab_testing - INFO - Sample size calculated: 56832 per variant
+2025-07-31 08:19:54,621 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,626 - src.ab_testing - INFO - Sample size calculated: 32891 per variant
+2025-07-31 08:19:54,626 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,636 - src.ab_testing - INFO - Sample size calculated: 21501 per variant
+2025-07-31 08:19:54,637 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,643 - src.ab_testing - INFO - Sample size calculated: 15194 per variant
+2025-07-31 08:19:54,643 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,651 - src.ab_testing - INFO - Sample size calculated: 11335 per variant
+2025-07-31 08:19:54,651 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,657 - src.ab_testing - INFO - Sample size calculated: 8798 per variant
+2025-07-31 08:19:54,657 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,667 - src.ab_testing - INFO - Sample size calculated: 7041 per variant
+2025-07-31 08:19:54,667 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,674 - src.ab_testing - INFO - Sample size calculated: 5772 per variant
+2025-07-31 08:19:54,674 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,674 - src.ab_testing - INFO - Sample size calculated: 4825 per variant
+2025-07-31 08:19:54,680 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,686 - src.ab_testing - INFO - Sample size calculated: 4099 per variant
+2025-07-31 08:19:54,687 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,693 - src.ab_testing - INFO - Sample size calculated: 3530 per variant
+2025-07-31 08:19:54,693 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,701 - src.ab_testing - INFO - Sample size calculated: 3075 per variant
+2025-07-31 08:19:54,702 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,705 - src.ab_testing - INFO - Sample size calculated: 2706 per variant
+2025-07-31 08:19:54,705 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,705 - src.ab_testing - INFO - Sample size calculated: 2401 per variant
+2025-07-31 08:19:54,705 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,716 - src.ab_testing - INFO - Sample size calculated: 2147 per variant
+2025-07-31 08:19:54,717 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,720 - src.ab_testing - INFO - Sample size calculated: 1933 per variant
+2025-07-31 08:19:54,720 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,720 - src.ab_testing - INFO - Sample size calculated: 1751 per variant
+2025-07-31 08:19:54,720 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,732 - src.ab_testing - INFO - Sample size calculated: 1594 per variant
+2025-07-31 08:19:54,733 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:19:54,736 - src.ab_testing - INFO - Sample size calculated: 1459 per variant
+2025-07-31 08:19:58,579 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:19:58,595 - src.ab_testing - INFO - Analyzing A/B test results for conversion...
+2025-07-31 08:19:58,601 - src.ab_testing - ERROR - Error analyzing test results: TTestPower.solve_power() got an unexpected keyword argument 'nobs1'
+2025-07-31 08:20:34,070 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 08:20:34,071 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 08:20:34,071 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 08:20:35,549 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 08:20:35,552 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:20:35,625 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:20:35,625 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:20:35,643 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:20:35,644 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 08:20:35,730 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 08:20:35,730 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 08:20:35,730 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:20:35,746 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:20:35,746 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:20:35,795 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:20:35,800 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 08:20:35,800 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 08:20:35,919 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 08:20:35,920 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 08:20:36,067 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 08:20:36,067 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 08:20:36,067 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:20:36,128 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:20:36,174 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 08:20:36,176 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 08:25:48,011 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:25:50,133 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:25:50,138 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,152 - src.ab_testing - INFO - Sample size calculated: 8144 per variant
+2025-07-31 08:25:50,152 - src.ab_testing - INFO - Calculating test duration...
+2025-07-31 08:25:50,152 - src.ab_testing - INFO - Test duration: 5 days
+2025-07-31 08:25:50,152 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,161 - src.ab_testing - INFO - Sample size calculated: 122108 per variant
+2025-07-31 08:25:50,161 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,161 - src.ab_testing - INFO - Sample size calculated: 56832 per variant
+2025-07-31 08:25:50,161 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,177 - src.ab_testing - INFO - Sample size calculated: 32891 per variant
+2025-07-31 08:25:50,177 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,177 - src.ab_testing - INFO - Sample size calculated: 21501 per variant
+2025-07-31 08:25:50,177 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,194 - src.ab_testing - INFO - Sample size calculated: 15194 per variant
+2025-07-31 08:25:50,194 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,194 - src.ab_testing - INFO - Sample size calculated: 11335 per variant
+2025-07-31 08:25:50,194 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,194 - src.ab_testing - INFO - Sample size calculated: 8798 per variant
+2025-07-31 08:25:50,209 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,214 - src.ab_testing - INFO - Sample size calculated: 7041 per variant
+2025-07-31 08:25:50,214 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,220 - src.ab_testing - INFO - Sample size calculated: 5772 per variant
+2025-07-31 08:25:50,220 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,223 - src.ab_testing - INFO - Sample size calculated: 4825 per variant
+2025-07-31 08:25:50,223 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,227 - src.ab_testing - INFO - Sample size calculated: 4099 per variant
+2025-07-31 08:25:50,227 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,227 - src.ab_testing - INFO - Sample size calculated: 3530 per variant
+2025-07-31 08:25:50,227 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,227 - src.ab_testing - INFO - Sample size calculated: 3075 per variant
+2025-07-31 08:25:50,227 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,244 - src.ab_testing - INFO - Sample size calculated: 2706 per variant
+2025-07-31 08:25:50,244 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,244 - src.ab_testing - INFO - Sample size calculated: 2401 per variant
+2025-07-31 08:25:50,244 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,244 - src.ab_testing - INFO - Sample size calculated: 2147 per variant
+2025-07-31 08:25:50,244 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,261 - src.ab_testing - INFO - Sample size calculated: 1933 per variant
+2025-07-31 08:25:50,261 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,261 - src.ab_testing - INFO - Sample size calculated: 1751 per variant
+2025-07-31 08:25:50,261 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,261 - src.ab_testing - INFO - Sample size calculated: 1594 per variant
+2025-07-31 08:25:50,261 - src.ab_testing - INFO - Calculating sample size for conversion test...
+2025-07-31 08:25:50,261 - src.ab_testing - INFO - Sample size calculated: 1459 per variant
+2025-07-31 08:25:53,913 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:25:53,934 - src.ab_testing - INFO - Analyzing A/B test results for conversion...
+2025-07-31 08:25:53,969 - src.ab_testing - INFO - Test analysis completed. Significant: True
+2025-07-31 08:26:09,314 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 08:26:09,314 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 08:26:09,314 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 08:26:10,888 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 08:26:10,905 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:26:10,993 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:26:10,993 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:26:11,015 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:26:11,015 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 08:26:11,102 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 08:26:11,102 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 08:26:11,102 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:26:11,118 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:26:11,118 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:26:11,166 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:26:11,182 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 08:26:11,182 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 08:26:11,286 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 08:26:11,286 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 08:26:11,457 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 08:26:11,458 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 08:26:11,458 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:26:11,508 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:26:11,556 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 08:26:11,556 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 08:30:33,940 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:30:36,828 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:30:36,850 - src.ab_testing - INFO - Analyzing A/B test results for conversion...
+2025-07-31 08:30:36,862 - src.ab_testing - INFO - Test analysis completed. Significant: True
+2025-07-31 08:30:46,010 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 08:30:46,010 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 08:30:46,010 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 08:30:47,424 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 08:30:47,441 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:30:47,508 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:30:47,508 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:30:47,525 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:30:47,525 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 08:30:47,627 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 08:30:47,627 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 08:30:47,628 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:30:47,641 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:30:47,641 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:30:47,689 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:30:47,702 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 08:30:47,702 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 08:30:47,814 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 08:30:47,814 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 08:30:48,057 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 08:30:48,058 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 08:30:48,058 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:30:48,126 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:30:48,183 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 08:30:48,186 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 08:31:10,053 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 08:31:10,053 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 08:31:10,053 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 08:31:11,535 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 08:31:11,554 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:31:11,614 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:31:11,615 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:31:11,628 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:31:11,628 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 08:31:11,684 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 08:31:11,684 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 08:31:11,684 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:31:11,710 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:31:11,710 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:31:11,750 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:31:11,765 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 08:31:11,765 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 08:31:11,913 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 08:31:11,914 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 08:31:12,072 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 08:31:12,073 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 08:31:12,073 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:31:12,132 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:31:12,167 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 08:31:12,167 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 08:35:01,887 - src.ab_testing - INFO - A/B Testing Framework initialized
+2025-07-31 08:35:07,634 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 08:35:07,649 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 08:35:07,649 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 08:35:09,116 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 08:35:09,151 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:35:09,266 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:35:09,266 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:35:09,287 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:35:09,287 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 08:35:09,374 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 08:35:09,374 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 08:35:09,374 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:35:09,381 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:35:09,381 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:35:09,454 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:35:09,464 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 08:35:09,464 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 08:35:09,593 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 08:35:09,593 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 08:35:09,809 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 08:35:09,809 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 08:35:09,809 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:35:10,023 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:35:10,346 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 08:35:10,559 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 08:37:22,047 - src.cohort_analysis - INFO - Advanced Cohort Analysis initialized
+2025-07-31 08:37:22,047 - src.cohort_analysis - INFO - Starting complete cohort analysis...
+2025-07-31 08:37:22,047 - src.cohort_analysis - INFO - Preparing cohort data...
+2025-07-31 08:37:23,675 - src.cohort_analysis - INFO - Prepared cohort data with 112650 records
+2025-07-31 08:37:23,701 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:37:23,754 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:37:23,754 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:37:23,759 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:37:23,759 - src.cohort_analysis - INFO - Analyzing cohort quality...
+2025-07-31 08:37:23,835 - src.cohort_analysis - INFO - Analyzed 23 cohorts
+2025-07-31 08:37:23,836 - src.cohort_analysis - INFO - Calculating LTV by cohort...
+2025-07-31 08:37:23,836 - src.cohort_analysis - INFO - Calculating revenue retention matrix...
+2025-07-31 08:37:23,849 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:37:23,849 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:37:23,892 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:37:23,911 - src.cohort_analysis - INFO - LTV calculation completed
+2025-07-31 08:37:23,912 - src.cohort_analysis - INFO - Performing segmented cohort analysis by customer_state...
+2025-07-31 08:37:24,010 - src.cohort_analysis - INFO - Completed segmented analysis for 5 segments
+2025-07-31 08:37:24,010 - src.cohort_analysis - INFO - Creating cohort visualizations...
+2025-07-31 08:37:24,176 - src.cohort_analysis - INFO - Cohort visualizations created successfully
+2025-07-31 08:37:24,176 - src.cohort_analysis - INFO - Predicting future cohort performance...
+2025-07-31 08:37:24,176 - src.cohort_analysis - INFO - Calculating customers retention matrix...
+2025-07-31 08:37:24,235 - src.cohort_analysis - INFO - Created retention matrix with shape (23, 20)
+2025-07-31 08:37:24,259 - src.cohort_analysis - INFO - Cohort predictions completed
+2025-07-31 08:37:24,259 - src.cohort_analysis - INFO - Complete cohort analysis finished successfully
+2025-07-31 08:37:24,561 - src.ab_testing - INFO - A/B Testing Framework initialized

@@ -1,0 +1,104 @@
+Final Model Training Report
+============================================================
+
+Training Configuration:
+- Moderate regularization applied for ~85% accuracy
+- Balanced class weights
+- 5-fold stratified cross-validation
+- Multiple model families tested
+
+Best Model: Gradient_Boosting
+Test ROC-AUC: 0.812
+
+All Models Performance:
+------------------------------------------------------------
+
+Logistic_Regression_L2:
+  CV Validation:
+    Accuracy: 0.541 (±0.003)
+    ROC-AUC: 0.555
+    Overfit Gap: 0.000
+  Test Set:
+    Accuracy: 0.539
+    Precision: 0.558
+    Recall: 0.567
+    F1-Score: 0.562
+    ROC-AUC: 0.555
+
+Logistic_Regression_L1:
+  CV Validation:
+    Accuracy: 0.540 (±0.005)
+    ROC-AUC: 0.556
+    Overfit Gap: 0.002
+  Test Set:
+    Accuracy: 0.541
+    Precision: 0.560
+    Recall: 0.570
+    F1-Score: 0.565
+    ROC-AUC: 0.557
+
+Decision_Tree:
+  CV Validation:
+    Accuracy: 0.654 (±0.005)
+    ROC-AUC: 0.693
+    Overfit Gap: 0.001
+  Test Set:
+    Accuracy: 0.656
+    Precision: 0.653
+    Recall: 0.725
+    F1-Score: 0.687
+    ROC-AUC: 0.700
+
+Random_Forest:
+  CV Validation:
+    Accuracy: 0.659 (±0.009)
+    ROC-AUC: 0.722
+    Overfit Gap: 0.002
+  Test Set:
+    Accuracy: 0.668
+    Precision: 0.656
+    Recall: 0.765
+    F1-Score: 0.706
+    ROC-AUC: 0.726
+
+Gradient_Boosting:
+  CV Validation:
+    Accuracy: 0.729 (±0.005)
+    ROC-AUC: 0.807
+    Overfit Gap: 0.008
+  Test Set:
+    Accuracy: 0.737
+    Precision: 0.720
+    Recall: 0.813
+    F1-Score: 0.763
+    ROC-AUC: 0.812
+
+XGBoost:
+  CV Validation:
+    Accuracy: 0.722 (±0.006)
+    ROC-AUC: 0.798
+    Overfit Gap: 0.005
+  Test Set:
+    Accuracy: 0.725
+    Precision: 0.728
+    Recall: 0.756
+    F1-Score: 0.742
+    ROC-AUC: 0.802
+
+SVM:
+  CV Validation:
+    Accuracy: 0.543 (±0.008)
+    ROC-AUC: 0.547
+    Overfit Gap: 0.005
+  Test Set:
+    Accuracy: 0.538
+    Precision: 0.532
+    Recall: 0.949
+    F1-Score: 0.682
+    ROC-AUC: 0.543
+
+============================================================
+Recommendations:
+- Deploy Gradient_Boosting model
+- Monitor performance on new data
+- Retrain monthly with updated data
