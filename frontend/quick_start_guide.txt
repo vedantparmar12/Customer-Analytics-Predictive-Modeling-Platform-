@@ -1,0 +1,59 @@
+========================================
+QUICK START GUIDE - REACT FRONTEND
+========================================
+
+OPTION 1: SIMPLE START (Windows)
+---------------------------------
+1. Double-click start_frontend.bat
+2. Wait for browser to open
+3. Done\!
+
+OPTION 2: MANUAL START
+----------------------
+1. Open Command Prompt/Terminal
+2. Run these commands:
+   cd frontend
+   npm install
+   npm start
+3. Browser opens at http://localhost:3000
+
+OPTION 3: FULL STACK (Frontend + Backend)
+------------------------------------------
+Terminal 1 (Backend API):
+   python -m uvicorn api.main:app --reload
+
+Terminal 2 (Frontend):
+   cd frontend
+   npm start
+
+WHAT YOU'LL SEE:
+-----------------
+✅ Executive Dashboard with KPIs
+✅ Revenue charts and graphs
+✅ Customer segmentation views
+✅ Churn prediction results
+✅ Cohort analysis matrices
+✅ A/B testing calculator
+✅ Business insights
+
+REQUIREMENTS:
+-------------
+- Node.js v14+ (check with: node --version)
+- npm (comes with Node.js)
+- Chrome/Firefox/Edge browser
+
+FIRST TIME SETUP:
+-----------------
+The first npm install may take 2-5 minutes
+Subsequent starts will be much faster
+
+TROUBLESHOOTING:
+----------------
+If npm install fails:
+  npm cache clean --force
+  npm install
+
+If port 3000 is busy:
+  Change port in package.json or kill the process
+
+========================================

@@ -1,0 +1,124 @@
+version: '3.8'
+
+services:
+  # Main application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecommerce-analytics-app
+    ports:
+      - "8501:8501"  # Streamlit UI
+    volumes:
+      - ./data:/app/data:ro
+      - ./artifacts:/app/artifacts
+      - ./logs:/app/logs
+      - ./mlruns:/app/mlruns
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - mlflow
+      - redis
+    restart: unless-stopped
+    networks:
+      - analytics-network
+
+  # API service for real-time predictions
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: ecommerce-analytics-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts:ro
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - analytics-network
+
+  # MLflow tracking server
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.9.2
+    container_name: ecommerce-mlflow
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlflow
+    environment:
+      - MLFLOW_BACKEND_STORE_URI=file:///mlflow
+      - MLFLOW_DEFAULT_ARTIFACT_ROOT=file:///mlflow
+    command: >
+      mlflow server
+      --backend-store-uri file:///mlflow
+      --default-artifact-root file:///mlflow
+      --host 0.0.0.0
+      --port 5000
+    restart: unless-stopped
+    networks:
+      - analytics-network
+
+  # Redis for caching and real-time features
+  redis:
+    image: redis:7-alpine
+    container_name: ecommerce-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    networks:
+      - analytics-network
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: ecommerce-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app
+      - api
+    restart: unless-stopped
+    networks:
+      - analytics-network
+
+  # Scheduled retraining service
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile.scheduler
+    container_name: ecommerce-scheduler
+    volumes:
+      - ./data:/app/data:ro
+      - ./artifacts:/app/artifacts
+      - ./logs:/app/logs
+      - ./mlruns:/app/mlruns
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - RETRAIN_SCHEDULE=0 2 * * 0  # Weekly at 2 AM on Sundays
+    depends_on:
+      - mlflow
+    restart: unless-stopped
+    networks:
+      - analytics-network
+
+volumes:
+  redis-data:
+
+networks:
+  analytics-network:
+    driver: bridge
