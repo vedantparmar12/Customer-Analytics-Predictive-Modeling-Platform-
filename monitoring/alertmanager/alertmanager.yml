@@ -1,0 +1,184 @@
+# Alertmanager configuration
+global:
+  smtp_smarthost: 'localhost:587'
+  smtp_from: 'alerts@ecommerce-ml-api.com'
+  smtp_require_tls: false
+
+# Templates for alert notifications
+templates:
+  - '/etc/alertmanager/templates/*.tmpl'
+
+# Route configuration
+route:
+  group_by: ['alertname', 'cluster', 'service']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'default-receiver'
+  routes:
+    # Critical alerts - immediate notification
+    - match:
+        severity: critical
+      receiver: 'critical-alerts'
+      group_wait: 10s
+      repeat_interval: 5m
+
+    # API specific alerts
+    - match:
+        service: ecommerce-api
+      receiver: 'api-team'
+      group_interval: 5m
+      repeat_interval: 30m
+
+    # ML model alerts
+    - match:
+        service: ml-models
+      receiver: 'ml-team'
+      group_interval: 5m
+      repeat_interval: 30m
+
+    # Infrastructure alerts
+    - match_re:
+        service: (redis|system)
+      receiver: 'infrastructure-team'
+      group_interval: 10m
+      repeat_interval: 1h
+
+    # Security alerts
+    - match:
+        service: security
+      receiver: 'security-team'
+      group_wait: 0s
+      repeat_interval: 15m
+
+# Receiver configurations
+receivers:
+  # Default receiver
+  - name: 'default-receiver'
+    email_configs:
+      - to: 'admin@ecommerce-ml-api.com'
+        subject: '[ALERT] {{ .GroupLabels.alertname }}'
+        body: |
+          {{ range .Alerts }}
+          Alert: {{ .Annotations.summary }}
+          Description: {{ .Annotations.description }}
+          Labels: {{ range .Labels.SortedPairs }}{{ .Name }}={{ .Value }} {{ end }}
+          {{ end }}
+
+  # Critical alerts - multiple channels
+  - name: 'critical-alerts'
+    email_configs:
+      - to: 'oncall@ecommerce-ml-api.com'
+        subject: '🚨 CRITICAL: {{ .GroupLabels.alertname }}'
+        body: |
+          CRITICAL ALERT TRIGGERED
+          
+          {{ range .Alerts }}
+          Alert: {{ .Annotations.summary }}
+          Description: {{ .Annotations.description }}
+          Severity: {{ .Labels.severity }}
+          Service: {{ .Labels.service }}
+          Instance: {{ .Labels.instance }}
+          Time: {{ .StartsAt }}
+          {{ end }}
+    webhook_configs:
+      - url: 'http://localhost:5001/webhook'  # Slack/Teams webhook
+        title: 'Critical Alert: {{ .GroupLabels.alertname }}'
+        text: |
+          {{ range .Alerts }}
+          🚨 {{ .Annotations.summary }}
+          📝 {{ .Annotations.description }}
+          🏷️ {{ .Labels.service }} - {{ .Labels.severity }}
+          {{ end }}
+
+  # API team notifications
+  - name: 'api-team'
+    email_configs:
+      - to: 'api-team@ecommerce-ml-api.com'
+        subject: '[API] {{ .GroupLabels.alertname }}'
+        body: |
+          API Alert Details:
+          
+          {{ range .Alerts }}
+          🔍 Alert: {{ .Annotations.summary }}
+          📋 Description: {{ .Annotations.description }}
+          📊 Service: {{ .Labels.service }}
+          📍 Instance: {{ .Labels.instance }}
+          ⏰ Started: {{ .StartsAt }}
+          🔗 Runbook: https://docs.ecommerce-ml-api.com/runbooks/{{ .Labels.alertname }}
+          {{ end }}
+
+  # ML team notifications  
+  - name: 'ml-team'
+    email_configs:
+      - to: 'ml-team@ecommerce-ml-api.com'
+        subject: '[ML] {{ .GroupLabels.alertname }}'
+        body: |
+          ML Model Alert:
+          
+          {{ range .Alerts }}
+          🤖 Model Issue: {{ .Annotations.summary }}
+          📊 Details: {{ .Annotations.description }}
+          🎯 Model: {{ .Labels.model_type }}
+          💻 Instance: {{ .Labels.instance }}
+          ⏰ Time: {{ .StartsAt }}
+          {{ end }}
+
+  # Infrastructure team
+  - name: 'infrastructure-team'
+    email_configs:
+      - to: 'infra-team@ecommerce-ml-api.com'
+        subject: '[INFRA] {{ .GroupLabels.alertname }}'
+        body: |
+          Infrastructure Alert:
+          
+          {{ range .Alerts }}
+          🏗️ Issue: {{ .Annotations.summary }}
+          🔧 Details: {{ .Annotations.description }}
+          🖥️ Service: {{ .Labels.service }}
+          📍 Instance: {{ .Labels.instance }}
+          {{ end }}
+
+  # Security team
+  - name: 'security-team'
+    email_configs:
+      - to: 'security-team@ecommerce-ml-api.com'
+        subject: '🔒 SECURITY ALERT: {{ .GroupLabels.alertname }}'
+        body: |
+          SECURITY ALERT DETECTED
+          
+          {{ range .Alerts }}
+          🔐 Security Issue: {{ .Annotations.summary }}
+          🚨 Details: {{ .Annotations.description }}
+          🎯 Service: {{ .Labels.service }}
+          📍 Instance: {{ .Labels.instance }}
+          ⏰ Detection Time: {{ .StartsAt }}
+          
+          Please investigate immediately.
+          {{ end }}
+
+# Inhibit rules - prevent spam during outages
+inhibit_rules:
+  # If service is down, inhibit other alerts for that service
+  - source_match:
+      alertname: APIServiceDown
+    target_match:
+      service: ecommerce-api
+    equal: ['instance']
+
+  # If Redis is down, inhibit cache-related alerts
+  - source_match:
+      alertname: RedisDown
+    target_match:
+      service: redis
+    equal: ['instance']
+
+  # If system has high CPU, inhibit high memory alerts (likely related)
+  - source_match:
+      alertname: HighCPUUsage
+    target_match:
+      alertname: HighMemoryUsage
+    equal: ['instance']
+
+# Mute/silence configuration
+# Note: Silences are typically managed through the Alertmanager UI

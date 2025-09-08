@@ -1,0 +1,36 @@
+# Grafana dashboard provisioning
+apiVersion: 1
+
+providers:
+  # Dashboard provider for API monitoring
+  - name: 'API Dashboards'
+    orgId: 1
+    folder: 'E-commerce ML API'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards
+
+  # System dashboards
+  - name: 'System Dashboards'
+    orgId: 1
+    folder: 'System Monitoring'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards/system
+
+  # Business dashboards
+  - name: 'Business Dashboards'
+    orgId: 1
+    folder: 'Business Metrics'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards/business

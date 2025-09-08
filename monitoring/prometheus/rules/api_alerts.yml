@@ -1,0 +1,198 @@
+# Prometheus alerting rules for E-commerce ML API
+groups:
+  - name: api_performance
+    rules:
+      # High error rate alert
+      - alert: HighErrorRate
+        expr: rate(api_requests_total{status_code=~"5.."}[5m]) / rate(api_requests_total[5m]) > 0.05
+        for: 2m
+        labels:
+          severity: warning
+          service: ecommerce-api
+        annotations:
+          summary: "High error rate detected"
+          description: "API error rate is {{ $value | humanizePercentage }} for the last 5 minutes"
+
+      # High response time alert
+      - alert: HighResponseTime
+        expr: histogram_quantile(0.95, rate(api_request_duration_seconds_bucket[5m])) > 2
+        for: 3m
+        labels:
+          severity: warning
+          service: ecommerce-api
+        annotations:
+          summary: "High API response time"
+          description: "95th percentile response time is {{ $value }}s for the last 5 minutes"
+
+      # Service down alert
+      - alert: APIServiceDown
+        expr: up{job="ecommerce-api"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: ecommerce-api
+        annotations:
+          summary: "API service is down"
+          description: "E-commerce ML API has been down for more than 1 minute"
+
+      # High request rate alert
+      - alert: HighRequestRate
+        expr: rate(api_requests_total[5m]) > 100
+        for: 5m
+        labels:
+          severity: info
+          service: ecommerce-api
+        annotations:
+          summary: "High request rate"
+          description: "API is receiving {{ $value }} requests per second"
+
+  - name: ml_model_alerts
+    rules:
+      # High prediction latency
+      - alert: HighPredictionLatency
+        expr: histogram_quantile(0.95, rate(prediction_duration_seconds_bucket[5m])) > 5
+        for: 3m
+        labels:
+          severity: warning
+          service: ml-models
+        annotations:
+          summary: "High ML prediction latency"
+          description: "{{ $labels.model_type }} model predictions taking {{ $value }}s at 95th percentile"
+
+      # Model prediction errors
+      - alert: ModelPredictionErrors
+        expr: rate(predictions_total{status="error"}[5m]) > 0.1
+        for: 2m
+        labels:
+          severity: warning
+          service: ml-models
+        annotations:
+          summary: "ML model prediction errors"
+          description: "{{ $labels.model_type }} model error rate is {{ $value }} predictions/sec"
+
+      # No predictions alert
+      - alert: NoPredictions
+        expr: rate(predictions_total[10m]) == 0
+        for: 5m
+        labels:
+          severity: warning
+          service: ml-models
+        annotations:
+          summary: "No ML predictions"
+          description: "No ML predictions have been made in the last 10 minutes"
+
+  - name: cache_alerts
+    rules:
+      # Redis down alert
+      - alert: RedisDown
+        expr: up{job="redis"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: redis
+        annotations:
+          summary: "Redis is down"
+          description: "Redis cache server has been down for more than 1 minute"
+
+      # Low cache hit rate
+      - alert: LowCacheHitRate
+        expr: redis_keyspace_hits / (redis_keyspace_hits + redis_keyspace_misses) < 0.7
+        for: 5m
+        labels:
+          severity: warning
+          service: redis
+        annotations:
+          summary: "Low cache hit rate"
+          description: "Redis cache hit rate is {{ $value | humanizePercentage }} which is below 70%"
+
+      # High Redis memory usage
+      - alert: HighRedisMemoryUsage
+        expr: redis_memory_used_bytes / redis_memory_max_bytes > 0.8
+        for: 3m
+        labels:
+          severity: warning
+          service: redis
+        annotations:
+          summary: "High Redis memory usage"
+          description: "Redis memory usage is {{ $value | humanizePercentage }} of maximum"
+
+      # Redis connection spike
+      - alert: RedisHighConnections
+        expr: redis_connected_clients > 100
+        for: 5m
+        labels:
+          severity: warning
+          service: redis
+        annotations:
+          summary: "High number of Redis connections"
+          description: "Redis has {{ $value }} connected clients"
+
+  - name: system_alerts
+    rules:
+      # High CPU usage
+      - alert: HighCPUUsage
+        expr: (100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)) > 80
+        for: 5m
+        labels:
+          severity: warning
+          service: system
+        annotations:
+          summary: "High CPU usage"
+          description: "CPU usage is {{ $value }}% on {{ $labels.instance }}"
+
+      # High memory usage
+      - alert: HighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) > 0.9
+        for: 3m
+        labels:
+          severity: warning
+          service: system
+        annotations:
+          summary: "High memory usage"
+          description: "Memory usage is {{ $value | humanizePercentage }} on {{ $labels.instance }}"
+
+      # Low disk space
+      - alert: LowDiskSpace
+        expr: (node_filesystem_avail_bytes / node_filesystem_size_bytes) < 0.1
+        for: 5m
+        labels:
+          severity: critical
+          service: system
+        annotations:
+          summary: "Low disk space"
+          description: "Disk space is {{ $value | humanizePercentage }} available on {{ $labels.instance }}"
+
+  - name: business_metrics
+    rules:
+      # Low prediction volume
+      - alert: LowPredictionVolume
+        expr: rate(predictions_total[1h]) < 10
+        for: 15m
+        labels:
+          severity: info
+          service: business
+        annotations:
+          summary: "Low prediction volume"
+          description: "Prediction rate is {{ $value }} per second over the last hour"
+
+      # Authentication failures spike
+      - alert: HighAuthFailures
+        expr: rate(api_requests_total{status_code="401"}[5m]) > 5
+        for: 3m
+        labels:
+          severity: warning
+          service: security
+        annotations:
+          summary: "High authentication failures"
+          description: "Authentication failure rate is {{ $value }} per second"
+
+      # Batch job failures
+      - alert: BatchJobFailures
+        expr: rate(batch_jobs_total{status="failed"}[10m]) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+          service: batch-processing
+        annotations:
+          summary: "Batch job failures"
+          description: "Batch job failure rate is {{ $value }} per second"

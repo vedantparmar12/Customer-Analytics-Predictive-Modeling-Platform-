@@ -1,0 +1,1 @@
+# Forecasting module for sales prediction and trend analysis

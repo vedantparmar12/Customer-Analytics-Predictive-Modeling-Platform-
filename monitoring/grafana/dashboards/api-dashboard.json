@@ -1,0 +1,284 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "E-commerce ML API Dashboard",
+    "tags": ["ml", "api", "ecommerce"],
+    "style": "dark",
+    "timezone": "browser",
+    "refresh": "30s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "API Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(api_requests_total[5m])",
+            "legendFormat": "{{method}} {{endpoint}}"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Requests/sec",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "API Response Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(api_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "95th percentile"
+          },
+          {
+            "expr": "histogram_quantile(0.5, rate(api_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "50th percentile"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Seconds",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Active Requests",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "api_active_requests"
+          }
+        ],
+        "valueMaps": [
+          {
+            "value": "null",
+            "text": "0"
+          }
+        ],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 4,
+        "title": "Error Rate",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "rate(api_requests_total{status_code=~\"4..|5..\"}[5m]) / rate(api_requests_total[5m])"
+          }
+        ],
+        "format": "percentunit",
+        "colorBackground": true,
+        "thresholds": "0.01,0.05",
+        "colors": ["green", "yellow", "red"],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 6,
+          "y": 8
+        }
+      },
+      {
+        "id": 5,
+        "title": "Total Predictions Today",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "increase(predictions_total[24h])"
+          }
+        ],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 8
+        }
+      },
+      {
+        "id": 6,
+        "title": "Cache Hit Rate",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "redis_keyspace_hits / (redis_keyspace_hits + redis_keyspace_misses)"
+          }
+        ],
+        "format": "percentunit",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 8
+        }
+      },
+      {
+        "id": 7,
+        "title": "Prediction Latency by Model",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(prediction_duration_seconds_bucket[5m]))",
+            "legendFormat": "{{model_type}} - 95th percentile"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Seconds",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 12
+        }
+      },
+      {
+        "id": 8,
+        "title": "Redis Memory Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "redis_memory_used_bytes",
+            "legendFormat": "Used Memory"
+          },
+          {
+            "expr": "redis_memory_max_bytes",
+            "legendFormat": "Max Memory"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Bytes",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 12
+        }
+      },
+      {
+        "id": 9,
+        "title": "API Status Codes",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "sum by (status_code) (rate(api_requests_total[5m]))",
+            "legendFormat": "{{status_code}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 20
+        }
+      },
+      {
+        "id": 10,
+        "title": "Prediction Types Distribution",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "sum by (model_type) (rate(predictions_total[5m]))",
+            "legendFormat": "{{model_type}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 8,
+          "y": 20
+        }
+      },
+      {
+        "id": 11,
+        "title": "System Load",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "system_cpu_usage",
+            "legendFormat": "CPU Usage"
+          },
+          {
+            "expr": "system_memory_usage",
+            "legendFormat": "Memory Usage"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Percentage",
+            "min": 0,
+            "max": 100
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 16,
+          "y": 20
+        }
+      }
+    ],
+    "templating": {
+      "list": [
+        {
+          "name": "instance",
+          "type": "query",
+          "query": "label_values(api_requests_total, instance)",
+          "refresh": 1,
+          "includeAll": true,
+          "multi": false
+        },
+        {
+          "name": "model_type",
+          "type": "query", 
+          "query": "label_values(predictions_total, model_type)",
+          "refresh": 1,
+          "includeAll": true,
+          "multi": true
+        }
+      ]
+    },
+    "annotations": {
+      "list": [
+        {
+          "name": "Deployments",
+          "datasource": "prometheus",
+          "expr": "changes(api_build_info[1d])",
+          "titleFormat": "Deployment",
+          "textFormat": "New version deployed"
+        }
+      ]
+    }
+  }
+}
